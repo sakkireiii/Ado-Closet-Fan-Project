@@ -9,7 +9,7 @@ Ado has so many incredible songs that choosing favourites, comparing them, and p
 
 That's exactly why Ado Ranker exists!
 
-# [Open Ado Ranker](https://ado-closet-fan-project.pages.dev/static/ado-ranker/)
+[Open Ado Ranker](https://ado-closet-fan-project.pages.dev/static/ado-ranker/)
 
 
 Made for indecisive Adomins like me who struggle to rank Ado's songs. This page helps you work through those difficult choices, one comparison at a time. Instead of having to rank her entire discography all at once, you can compare songs against each other and gradually build a tier list that actually reflects your preferences.
