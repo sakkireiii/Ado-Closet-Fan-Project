@@ -2,7 +2,6 @@
 title: Ado Closet
 ---
 
-# Ado Closet
 
 Welcome to Ado Closet!
 
