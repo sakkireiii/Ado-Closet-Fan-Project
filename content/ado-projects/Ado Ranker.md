@@ -25,7 +25,7 @@ Made for indecisive Adomins like me who struggle to rank Ado's songs, this tool 
 
 There is no right or wrong way to rank Ado's songs. The goal isn't to produce an objective ranking, but to help you figure out your own preferences, even when you're having a hard time choosing.
 
-[Open Ado Ranker](https://ado-closet-fan-project.pages.dev/ado-ranker/)
+[Open Ado Ranker](https://ado-closet-fan-project.pages.dev/static/ado-ranker/)
 
 
 *This is an unofficial, fan-made project created by a passionate Adomin, for Adomins. Not affiliated with Ado or her official staff/team.*
