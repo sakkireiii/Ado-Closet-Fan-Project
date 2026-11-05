@@ -200,11 +200,10 @@ plugins:
       position: afterBody
       priority: 10
   - source: "@quartz-community/footer"
-    enabled: true
+    enabled: false
     options:
       links:
-        GitHub: https://github.com/jackyzha0/quartz
-        Discord Community: https://discord.gg/cRFFHYye7t
+        Ado Hangout - Discord: https://discord.gg/ado1024
     layout:
       position: footer
       priority: 50
