@@ -1,8 +1,7 @@
 ---
-title: Projects
+title: Ado Closet Projects
 ---
 
-# Ado Closet Projects
 
 A collection of fan-made projects and interactive experiences centered around Ado.
 
