@@ -3,7 +3,7 @@ title: Ado Closet Projects
 ---
 
 
-A collection of fan-made projects and interactive experiences centered around Ado.
+A collection of fan-made projects and interactive experiences centered around Ado..
 
 ## Available Projects
 
