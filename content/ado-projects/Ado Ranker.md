@@ -11,7 +11,7 @@ That's exactly why Ado Ranker exists!
 
 Made for indecisive Adomins like me who struggle to rank Ado's songs, this tool helps you work through those difficult choices one comparison at a time. Instead of having to rank her entire discography all at once, you can compare songs against each other and gradually build a tier list that actually reflects your preferences.
 
-## Features
+## Key Features
 
 - **Song Comparisons**: Choose between two songs and gradually establish your personal rankings.
 - **Multiple Ranking Modes**: Try different comparison methods depending on how you want to rank.
@@ -21,11 +21,11 @@ Made for indecisive Adomins like me who struggle to rank Ado's songs, this tool 
 - **Search & Browse**: Easily find songs in your growing tier list.
 - **Export & Backup**: Save your rankings and restore them whenever you need to.
 
-## Your Rankings, Your Rules
+---
 
 There is no right or wrong way to rank Ado's songs. The goal isn't to produce an objective ranking, but to help you figure out your own preferences, even when you're having a hard time choosing.
 
-[Open Ado Ranker](https://ado-closet-fan-project.pages.dev/static/ado-ranker/)
+[Open Ado Ranker](https://ado-closet-fan-project.pages.dev/static/ado-ranker/index.html)
 
 
 *This is an unofficial, fan-made project created by a passionate Adomin, for Adomins. Not affiliated with Ado or her official staff/team.*
