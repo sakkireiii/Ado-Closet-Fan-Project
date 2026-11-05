@@ -50,7 +50,7 @@ body.sel #bar{display:block}
 .hidden{display:none!important}
 @media(max-width:620px){#battle{grid-template-columns:1fr}.versus{text-align:center}.song{min-height:95px}.row>*{min-width:100%}.row .fit{flex:1}.hero{flex-direction:column;text-align:center}}
 </style></head><body>
-<header class="hero"><svg id="rose" viewBox="-70 -70 140 140" aria-hidden="true"></svg><div><h1>Ado song ranker</h1><p>Settle close calls head to head, then shape your tier list.</p></div></header>
+<header class="hero"><svg id="rose" viewBox="-70 -70 140 140" aria-hidden="true"></svg><div><h1>Ado song ranker</h1><p>A simple ranking game specially made for indecisive people.</p></div></header>
 <div class="note" role="note"><p><b>Saved on this device only.</b> Your progress lives in this browser's local storage. It never leaves your device, and clearing browser data erases it. Use Export to back it up or move it elsewhere.</p><p><b>This is not the main tier list.</b> It's a guide for when you're struggling to rank. Use it to untangle close calls, then build your real list however you like.</p></div>
 <main>
 <section class="panel"><h2>1. Song list</h2><p class="hint">Paste titles, one per line. Duplicates are ignored. Or load the sample set of <span id="sampleN"></span> songs as a starting point (complete discography, including covers and a few live/karaoke).</p><textarea id="songsInput" placeholder="Show&#10;Usseewa&#10;Gira Gira"></textarea><div class="row" style="margin-top:8px"><button class="primary" id="add">Add songs</button><button id="sample">Load sample songs</button><button id="clearSongs">Clear songs</button></div><div class="stat" id="stats"></div></section>
