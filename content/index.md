@@ -13,6 +13,6 @@ Everything here is a work in progress, with more ideas and features still under 
 
 ## Explore
 
-- [Projects](Projects/) — Browse the games, tools, and other experiences available in Ado Closet.
+- [Projects](ado-projects/) — Browse the games, tools, and other experiences available in Ado Closet.
 
 More to come!
