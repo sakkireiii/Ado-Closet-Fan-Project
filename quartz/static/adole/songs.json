@@ -53,12 +53,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      30
     ],
     "audio": "clips/kirai-kirai-jiga-hidai",
     "yt": null,
-    "nico": null,
-    "start": 0
+    "nico": "sm31757098",
+    "start": 30
   },
   {
     "id": "the-disease-called-love",
@@ -852,16 +852,16 @@
   {
     "id": "shake-it-now",
     "titles": [
-      "Shake It Now"
+      "Shake It Now."
     ],
     "duration": null,
     "starts": [
-      0
+      145
     ],
     "audio": "clips/shake-it-now",
-    "yt": null,
+    "yt": "QZx7Iq1M1xU",
     "nico": null,
-    "start": 0
+    "start": 145
   },
   {
     "id": "usseewa",
@@ -1034,11 +1034,11 @@
     "id": "odo",
     "titles": ["Odo", "踊"],
     "duration": null,
-    "starts": [15, 48, 90, 130],
+    "starts": [148, 28, 90, 130],
     "audio": "clips/odo",
-    "yt": null,
+    "yt": "YnSW8ian29w",
     "nico": null,
-    "start": 15
+    "start": 148
   },
   {
     "id": "16-bit-girl",
@@ -1074,11 +1074,11 @@
     "id": "aitakute",
     "titles": ["Aitakute", "会いたくて"],
     "duration": null,
-    "starts": [0],
+    "starts": [118],
     "audio": "clips/aitakute",
-    "yt": null,
+    "yt": "jTVSU-Lr1ew",
     "nico": null,
-    "start": 0
+    "start": 118
   },
   {
     "id": "daze",
@@ -1595,11 +1595,11 @@
     "id": "unforgiven",
     "titles": ["UNFORGIVEN"],
     "duration": null,
-    "starts": [0],
+    "starts": [173],
     "audio": "clips/unforgiven",
-    "yt": null,
+    "yt": "vMddOrUGwDw",
     "nico": null,
-    "start": 0
+    "start": 173
   },
   {
     "id": "show",
@@ -2051,11 +2051,11 @@
       "十戒（1984）"
     ],
     "duration": null,
-    "starts": [0],
+    "starts": [47],
     "audio": "clips/jukkai-1984",
-    "yt": null,
+    "yt": "BFVn0ZQwGpk",
     "nico": null,
-    "start": 0
+    "start": 47
   },
   {
     "id": "matryoshka",
@@ -2091,11 +2091,11 @@
     "id": "ego-rock",
     "titles": ["Ego Rock", "エゴロック"],
     "duration": null,
-    "starts": [0],
+    "starts": [82],
     "audio": "clips/ego-rock",
-    "yt": null,
+    "yt": "TbOLDRuKsgA",
     "nico": null,
-    "start": 0
+    "start": 82
   },
   {
     "id": "juuzoku-fritters",
