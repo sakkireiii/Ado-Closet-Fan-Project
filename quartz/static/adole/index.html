@@ -180,8 +180,13 @@ $("#rows").onclick=e=>{const b=e.target.closest(".play");if(b)play(+b.dataset.i)
 function play(i){
  if(!song.yt||!ready)return toast("Clip not available yet");
  if(hard()&&S.played[i]&&!S.done)return;
- S.played[i]=true;save();pending=LEN[i];clearTimeout(timer);
- yt.seekTo(song.start||0,true);yt.playVideo();
+ S.played[i]=true;save();
+ pending=LEN[i];
+ clearTimeout(timer);
+ yt.loadVideoById({
+  videoId:song.yt,
+  startSeconds:Math.max(0,Number(song.start)||0)
+ });
  if(hard()&&!S.done)render();
 }
 function submit(text){
