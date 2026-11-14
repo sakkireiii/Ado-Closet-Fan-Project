@@ -1,18 +1,2416 @@
 [
- {"titles":["Usseewa","うっせぇわ"],"yt":"Qp3b-RXtz4w","start":32},
- {"titles":["Readymade","レディメイド"],"yt":"","start":0},
- {"titles":["Gira Gira","ギラギラ"],"yt":"","start":0},
- {"titles":["Love is War","恋は戦争","Koi wa Sensou"],"yt":"","start":0},
- {"titles":["Yoru no Pierrot","夜のピエロ"],"yt":"","start":0},
- {"titles":["Odo","踊"],"yt":"","start":0},
- {"titles":["Ashura-chan","阿修羅ちゃん"],"yt":"","start":0},
- {"titles":["New Genesis","新時代","Shinjidai"],"yt":"","start":0},
- {"titles":["I'm Invincible","私は最強","Watashi wa Saikyou"],"yt":"","start":0},
- {"titles":["Show","唱"],"yt":"","start":0},
- {"titles":["Ibara","いばら"],"yt":"","start":0},
- {"titles":["Himawari","向日葵"],"yt":"","start":0},
- {"titles":["Kura Kura","クラクラ"],"yt":"","start":0},
- {"titles":["Accident Coordinator","アクシデントコーディネイター"],"yt":"","start":0},
- {"titles":["Shoka","初夏"],"yt":"","start":0},
- {"titles":["Chocolat Cadabra","ショコラカタブラ"],"yt":"","start":0}
-]
+  {
+    "id": "kimi-no-taion",
+    "titles": [
+      "Kimi no Taion",
+      "君の体温"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/kimi-no-taion",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "star-night-snow",
+    "titles": [
+      "Star Night Snow",
+      "スターナイトスノウ"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/star-night-snow",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "strangers",
+    "titles": [
+      "Strangers"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/strangers",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "kirai-kirai-jiga-hidai",
+    "titles": [
+      "Kirai Kirai Jiga Hidai!",
+      "キライ・キライ・ジガヒダイ！",
+      "Hate It. Hate It. \"JIGAHIDAI!\"",
+      "JIGAHIDAI"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/kirai-kirai-jiga-hidai",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "the-disease-called-love",
+    "titles": [
+      "The Disease Called Love",
+      "Byoumei wa Ai Datta",
+      "病名は愛だった"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/the-disease-called-love",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "doting",
+    "titles": [
+      "doting",
+      "Aikyuuoku",
+      "愛及屋烏"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/doting",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "deep-coma",
+    "titles": [
+      "deep coma",
+      "Shinkonsui",
+      "深昏睡"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/deep-coma",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "mkdr",
+    "titles": [
+      "MKDR",
+      "Mousou Kanshou Daishou Renmei",
+      "妄想感傷代償連盟"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/mkdr",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "my-r",
+    "titles": [
+      "My R",
+      "Watashi no R",
+      "わたしのアール"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/my-r",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "liar-dance",
+    "titles": [
+      "Liar Dance",
+      "ライアーダンス"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/liar-dance",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "wagamama",
+    "titles": [
+      "Wagamama",
+      "ワガママ"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/wagamama",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "kirai-kirai-jiga-hidai-re",
+    "titles": [
+      "Kirai Kirai Jiga Hidai!:re",
+      "キライ・キライ・ジガヒダイ！:re",
+      "Hate It. Hate It. \"JIGAHIDAI!\":re",
+      "JIGAHIDAI:re"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/kirai-kirai-jiga-hidai-re",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "bad-dance-hall",
+    "titles": [
+      "Bad Dance Hall",
+      "バッド・ダンス・ホール"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/bad-dance-hall",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "rebirth",
+    "titles": [
+      "Rebirth",
+      "Uminaoshi",
+      "うみなおし"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/rebirth",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "love-trial",
+    "titles": [
+      "Love Trial",
+      "Ren'aisaiban",
+      "恋愛裁判"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/love-trial",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "on-the-rocks",
+    "titles": [
+      "on the rocks"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/on-the-rocks",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "accident-coordinator",
+    "titles": [
+      "Accident Coordinator",
+      "アクシデントコーディネイター"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/accident-coordinator",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "melty-land-nightmare",
+    "titles": [
+      "Melty Land Nightmare",
+      "メルティランドナイトメア"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/melty-land-nightmare",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "additional-memory",
+    "titles": [
+      "Additional Memory",
+      "アディショナルメモリー"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/additional-memory",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "ego-rock-onechorus",
+    "titles": [
+      "Ego Rock onechorus",
+      "Ego Rock",
+      "エゴロック 【ワンコーラス】",
+      "エゴロック"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/ego-rock-onechorus",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "otome-kaibou",
+    "titles": [
+      "Otome Kaibou",
+      "Maiden Dissection",
+      "乙女解剖"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/otome-kaibou",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "cracker-on-the-mind",
+    "titles": [
+      "Cracker on the Mind",
+      "Nouri ue no Cracker",
+      "脳裏上のクラッカー"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/cracker-on-the-mind",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "secret-answer",
+    "titles": [
+      "Secret Answer"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/secret-answer",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "brain-revolution-girl",
+    "titles": [
+      "Brain Revolution Girl",
+      "Nounai Kakumei Girl",
+      "脳内革命ガール"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/brain-revolution-girl",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "little-cry-of-the-abyss",
+    "titles": [
+      "Little Cry of the Abyss"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/little-cry-of-the-abyss",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "jama",
+    "titles": [
+      "Jama",
+      "Annoyance",
+      "邪魔"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/jama",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "hungry-nicole",
+    "titles": [
+      "Hungry Nicole",
+      "ハングリーニコル"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/hungry-nicole",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "birthday-song-for-miku",
+    "titles": [
+      "Birthday Song for Miku"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/birthday-song-for-miku",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "bin",
+    "titles": [
+      "bin"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/bin",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "basket-worm",
+    "titles": [
+      "Basket Worm",
+      "バスケットワーム"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/basket-worm",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "osmanthus",
+    "titles": [
+      "Osmanthus",
+      "Kinmokusei",
+      "金木犀"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/osmanthus",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "20kyo",
+    "titles": [
+      "'20KYO"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/20kyo",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "sleep-with-sheep",
+    "titles": [
+      "SLEEP WITH SHEEP"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/sleep-with-sheep",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "factoria",
+    "titles": [
+      "Factoria",
+      "ファクトリア"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/factoria",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "last-resort",
+    "titles": [
+      "Last Resort",
+      "ラストリゾート"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/last-resort",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "shikabanese",
+    "titles": [
+      "Shikabanese",
+      "シカバネーゼ"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/shikabanese",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "anemone",
+    "titles": [
+      "ANEMONE"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/anemone",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "girl-eraser",
+    "titles": [
+      "Girl Eraser",
+      "Shoujo Keshigomu",
+      "少女ケシゴム"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/girl-eraser",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "tell-your-world",
+    "titles": [
+      "Tell Your World"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/tell-your-world",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "call-boy",
+    "titles": [
+      "Call Boy",
+      "コールボーイ"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/call-boy",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "uninterrupted-indigo",
+    "titles": [
+      "Uninterrupted Indigo",
+      "Taemanaku Aiiro",
+      "絶え間なく藍色"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/uninterrupted-indigo",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "bocca-della-verita",
+    "titles": [
+      "Bocca Della Verità",
+      "ボッカデラベリタ"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/bocca-della-verita",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "baka",
+    "titles": [
+      "Baka",
+      "Idiot",
+      "馬鹿"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/baka",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "stick-candy",
+    "titles": [
+      "stick candy"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/stick-candy",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "nanana",
+    "titles": [
+      "NaNaNa"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/nanana",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "lacteus-orbis",
+    "titles": [
+      "Lacteus Orbis",
+      "ラクタス・オルビス"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/lacteus-orbis",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "hysteric-night-girl",
+    "titles": [
+      "Hysteric Night Girl",
+      "ヒステリックナイトガール"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/hysteric-night-girl",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "tokyo-cannibalism",
+    "titles": [
+      "TOKYO CANNIBALISM",
+      "東京カニバリズム"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/tokyo-cannibalism",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "eat",
+    "titles": [
+      "Eat",
+      "イート"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/eat",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "overhead-dancing-love",
+    "titles": [
+      "Overhead, Dancing Love",
+      "Fukan, Ai wo odoru",
+      "俯瞰、愛を躍る。"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/overhead-dancing-love",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "rain-to-a-flower-a-song-to-you",
+    "titles": [
+      "Rain to a flower, a song to you",
+      "Hana ni Ame wo, Kimi ni Uta wo",
+      "花に雨を、君に歌を"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/rain-to-a-flower-a-song-to-you",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "freudmeta",
+    "titles": [
+      "Freudmeta",
+      "フロイドメタ"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/freudmeta",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "half-colored-sentimentality",
+    "titles": [
+      "Half-Colored Sentimentality",
+      "Hashitairo no Kanshou",
+      "半色の感傷"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/half-colored-sentimentality",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "osyarebantyou",
+    "titles": [
+      "Osyarebantyou",
+      "お洒落番長"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/osyarebantyou",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "limbo",
+    "titles": [
+      "Limbo"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/limbo",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "sunny-wave",
+    "titles": [
+      "Sunny Wave"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/sunny-wave",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "shake-it-now",
+    "titles": [
+      "Shake It Now"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/shake-it-now",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "usseewa",
+    "titles": [
+      "Usseewa",
+      "うっせぇわ"
+    ],
+    "duration": null,
+    "starts": [
+      35,
+      85,
+      120,
+      155
+    ],
+    "audio": "clips/usseewa",
+    "yt": null,
+    "nico": null,
+    "start": 35
+  },
+  {
+    "id": "black-rock-shooter",
+    "titles": [
+      "Black Rock Shooter",
+      "ブラック★ロックシューター"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/black-rock-shooter",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "love-ka",
+    "titles": [
+      "Love Ka?",
+      "ラブカ？"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/love-ka",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "faking-of-comedy",
+    "titles": [
+      "Faking of Comedy",
+      "フェイキング・オブ・コメディー"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/faking-of-comedy",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "readymade",
+    "titles": [
+      "READYMADE",
+      "レディメイド"
+    ],
+    "duration": null,
+    "starts": [
+      15,
+      50,
+      90
+    ],
+    "audio": "clips/readymade",
+    "yt": null,
+    "nico": null,
+    "start": 15
+  },
+  {
+    "id": "kimi-no-taion-2",
+    "titles": [
+      "Kimi no Taion (2021)",
+      "君の体温（2021）",
+      "Kimi no Taion 2021"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/kimi-no-taion-2",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "radio-noise",
+    "titles": [
+      "Radio Noise"
+    ],
+    "duration": null,
+    "starts": [
+      0
+    ],
+    "audio": "clips/radio-noise",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "gira-gira",
+    "titles": [
+      "Gira Gira",
+      "ギラギラ"
+    ],
+    "duration": null,
+    "starts": [
+      25,
+      70,
+      110
+    ],
+    "audio": "clips/gira-gira",
+    "yt": null,
+    "nico": null,
+    "start": 25
+  },
+ {
+    "id": "fool-fool-fool",
+    "titles": [
+      "Fool Fool Fool",
+      "フールフールフール"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/fool-fool-fool",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "kira-kira-boshi",
+    "titles": [
+      "Kira Kira Boshi",
+      "Twinkle Twinkle Little Star",
+      "きらきら星"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/kira-kira-boshi",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "love-is-war",
+    "titles": [
+      "Love is War",
+      "Koi wa Sensou",
+      "恋は戦争"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/love-is-war",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "odo",
+    "titles": ["Odo", "踊"],
+    "duration": null,
+    "starts": [15, 48, 90, 130],
+    "audio": "clips/odo",
+    "yt": null,
+    "nico": null,
+    "start": 15
+  },
+  {
+    "id": "16-bit-girl",
+    "titles": ["16-bit girl", "16ビットガール"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/16-bit-girl",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "yoru-no-pierrot",
+    "titles": ["Yoru no Pierrot", "夜のピエロ"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/yoru-no-pierrot",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "antisystem-s",
+    "titles": ["Antisystem's", "アンチシステム's"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/antisystem-s",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "aitakute",
+    "titles": ["Aitakute", "会いたくて"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/aitakute",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "daze",
+    "titles": ["daze"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/daze",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "zaneri",
+    "titles": ["Zaneri", "ザネリ"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/zaneri",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "yokubari",
+    "titles": ["Yokubari", "よくばり"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/yokubari",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "rasen",
+    "titles": ["RASEN", "蝸旋"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/rasen",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "adam-to-eve-ni-naretara",
+    "titles": [
+      "Adam to Eve ni Naretara",
+      "If We Could Be Adam and Eve",
+      "アダムとイブになれたら"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/adam-to-eve-ni-naretara",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "scissorhands",
+    "titles": ["Scissorhands", "シザーハンズ"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/scissorhands",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "mecchamote-i-love-you",
+    "titles": ["Mecchamote I LOVE YOU", "めちゃモテ I LOVE YOU"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/mecchamote-i-love-you",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "ashura-chan",
+    "titles": ["Ashura-chan", "阿修羅ちゃん"],
+    "duration": null,
+    "starts": [20, 60, 100],
+    "audio": "clips/ashura-chan",
+    "yt": null,
+    "nico": null,
+    "start": 20
+  },
+  {
+    "id": "snow-song-show",
+    "titles": ["Snow Song Show"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/snow-song-show",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "senbonzakura",
+    "titles": [
+      "Senbonzakura",
+      "Thousands of Cherry Trees",
+      "千本桜"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/senbonzakura",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "ah-it-s-a-wonderful-cat-life",
+    "titles": [
+      "Ah, It's a Wonderful Cat Life",
+      "Aa, Subarashiki Nyansei",
+      "嗚呼、素晴らしきニャン生"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/ah-it-s-a-wonderful-cat-life",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "love-destroy",
+    "titles": ["Love & Destroy", "ラブ&デストロイ"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/love-destroy",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "domestic-de-violence",
+    "titles": [
+      "Domestic De Violence",
+      "ドメスティックでバイオレンス"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/domestic-de-violence",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "freedom",
+    "titles": ["FREEDOM"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/freedom",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "kokorotoiunanofukakai",
+    "titles": [
+      "Kokorotoiunanofukakai",
+      "An Enigma Called Heart",
+      "心という名の不可解"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/kokorotoiunanofukakai",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "fireworks",
+    "titles": ["Fireworks", "花火"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/fireworks",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "lucky-bruto",
+    "titles": ["Lucky Bruto", "ラッキー・ブルート"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/lucky-bruto",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "motherland",
+    "titles": ["Motherland", "マザーランド"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/motherland",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "kagakushuu",
+    "titles": ["Kagakushuu", "過学習"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/kagakushuu",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "eien-no-akuruhi",
+    "titles": ["Eien no Akuruhi", "永遠のあくる日"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/eien-no-akuruhi",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "tachiirikinshi",
+    "titles": [
+      "Tachiirikinshi",
+      "No Trespassing",
+      "立ち入り禁止"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/tachiirikinshi",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "darling-dance",
+    "titles": ["Darling Dance", "ダーリンダンス"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/darling-dance",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "new-genesis",
+    "titles": ["New Genesis", "Shinjidai", "新時代"],
+    "duration": null,
+    "starts": [10, 45, 90],
+    "audio": "clips/new-genesis",
+    "yt": null,
+    "nico": null,
+    "start": 10
+  },
+  {
+    "id": "i-m-invincible",
+    "titles": [
+      "I'm Invincible",
+      "Watashi wa Saikyou",
+      "私は最強"
+    ],
+    "duration": null,
+    "starts": [15, 50, 95],
+    "audio": "clips/i-m-invincible",
+    "yt": null,
+    "nico": null,
+    "start": 15
+  },
+  {
+    "id": "backlight",
+    "titles": ["Backlight", "Gyakkou", "逆光"],
+    "duration": null,
+    "starts": [20, 55, 100],
+    "audio": "clips/backlight",
+    "yt": null,
+    "nico": null,
+    "start": 20
+  },
+  {
+    "id": "god-ish",
+    "titles": ["God-ish", "Kamippoi na", "神っぽいな"],
+    "duration": null,
+    "starts": [18, 52, 95],
+    "audio": "clips/god-ish",
+    "yt": null,
+    "nico": null,
+    "start": 18
+  },
+  {
+    "id": "crime-and-punishment",
+    "titles": [
+      "Crime and Punishment",
+      "Tsumi to Batsu",
+      "罪と罰"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/crime-and-punishment",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "fleeting-lullaby",
+    "titles": [
+      "Fleeting Lullaby",
+      "Utakata Lullaby",
+      "ウタカタララバイ"
+    ],
+    "duration": null,
+    "starts": [20, 55, 95],
+    "audio": "clips/fleeting-lullaby",
+    "yt": null,
+    "nico": null,
+    "start": 20
+  },
+  {
+    "id": "binkusuno-sake",
+    "titles": ["BINKUSUNO SAKE", "ビンクスの酒"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/binkusuno-sake",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "the-world-s-continuation",
+    "titles": [
+      "The World's Continuation",
+      "Sekai no Tsuzuki",
+      "世界のつづき"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/the-world-s-continuation",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "tot-musica",
+    "titles": ["Tot Musica"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/tot-musica",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "night-in-tokyo",
+    "titles": [
+      "Night in Tokyo",
+      "Tokyo wa Yoru",
+      "東京は夜"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/night-in-tokyo",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "where-the-wind-blows",
+    "titles": [
+      "Where the Wind Blows",
+      "Kaze no Yukue",
+      "風のゆくえ"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/where-the-wind-blows",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "rebellion",
+    "titles": ["Rebellion", "リベリオン"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/rebellion",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "mr-schadenfreude",
+    "titles": [
+      "Mr. Schadenfreude",
+      "Mr.シャーデンフロイデ"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/mr-schadenfreude",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "missing",
+    "titles": ["Missing", "Yukue Shirezu", "行方知れず"],
+    "duration": null,
+    "starts": [20, 55, 100],
+    "audio": "clips/missing",
+    "yt": null,
+    "nico": null,
+    "start": 20
+  },
+  {
+    "id": "life-is-short-so-fall-in-love-girls",
+    "titles": [
+      "Life is short so fall in love girls",
+      "Inochi Mijikashi Koiseyo Otome",
+      "命短し恋せよ乙女"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/life-is-short-so-fall-in-love-girls",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "precure-5-smile-go-go",
+    "titles": [
+      "Precure 5, smile go go!",
+      "プリキュア5、スマイル go go"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/precure-5-smile-go-go",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "i-m-a-controversy",
+    "titles": [
+      "I'm a Controversy",
+      "Atashi wa Mondaisaku",
+      "アタシは問題作"
+    ],
+    "duration": null,
+    "starts": [20, 55, 95],
+    "audio": "clips/i-m-a-controversy",
+    "yt": null,
+    "nico": null,
+    "start": 20
+  },
+  {
+    "id": "overdose",
+    "titles": ["Overdose"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/overdose",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "viva-happy",
+    "titles": ["Viva Happy", "ビバハピ"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/viva-happy",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "ibara",
+    "titles": ["Ibara", "いばら"],
+    "duration": null,
+    "starts": [20, 60, 100],
+    "audio": "clips/ibara",
+    "yt": null,
+    "nico": null,
+    "start": 20
+  },
+  {
+    "id": "himawari",
+    "titles": ["Himawari", "向日葵"],
+    "duration": null,
+    "starts": [15, 50, 90],
+    "audio": "clips/himawari",
+    "yt": null,
+    "nico": null,
+    "start": 15
+  },
+  {
+    "id": "shinjinrui",
+    "titles": ["Shinjinrui", "新人類"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/shinjinrui",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "ready-steady",
+    "titles": ["Ready Steady"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/ready-steady",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "unforgiven",
+    "titles": ["UNFORGIVEN"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/unforgiven",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "show",
+    "titles": ["Show", "唱"],
+    "duration": null,
+    "starts": [20, 55, 95],
+    "audio": "clips/show",
+    "yt": null,
+    "nico": null,
+    "start": 20
+  },
+  {
+    "id": "dignity",
+    "titles": ["DIGNITY"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/dignity",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "kura-kura",
+    "titles": ["Kura Kura", "クラクラ"],
+    "duration": null,
+    "starts": [20, 55, 95],
+    "audio": "clips/kura-kura",
+    "yt": null,
+    "nico": null,
+    "start": 20
+  },
+  {
+    "id": "all-night-radio",
+    "titles": ["All Night Radio", "オールナイトレディオ"],
+    "duration": null,
+    "starts": [25, 70, 110],
+    "audio": "clips/all-night-radio",
+    "yt": null,
+    "nico": null,
+    "start": 25
+  },
+  {
+    "id": "interviewer",
+    "titles": ["Interviewer", "インタビュア"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/interviewer",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "blue-flame",
+    "titles": ["Blue Flame"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/blue-flame",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "culture",
+    "titles": ["Culture", "カルチャ"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/culture",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "unravel",
+    "titles": ["unravel"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/unravel",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "buriki-no-dance",
+    "titles": ["Buriki no Dance", "ブリキノダンス"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/buriki-no-dance",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "dried-flowers",
+    "titles": ["Dried Flowers", "ドライフラワー"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/dried-flowers",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+ {
+    "id": "kazarijyanainoyonamidawa",
+    "titles": [
+      "Kazarijyanainoyonamidawa",
+      "飾りじゃないのよ涙は"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/kazarijyanainoyonamidawa",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "aishite-aishite-aishite",
+    "titles": [
+      "Aishite Aishite Aishite",
+      "Love me, Love me, Love me",
+      "愛して愛して愛して"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/aishite-aishite-aishite",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "kawaikute-gomen",
+    "titles": ["Kawaikute Gomen", "可愛くてごめん"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/kawaikute-gomen",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "villain",
+    "titles": ["Villain", "ビラン"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/villain",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "dawn-and-fireflies",
+    "titles": [
+      "Dawn and Fireflies",
+      "Yoake to Hotaru",
+      "夜明けと蛍"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/dawn-and-fireflies",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "hello-signals",
+    "titles": ["Hello Signals"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/hello-signals",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "mabel",
+    "titles": ["Mabel", "メーベル"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/mabel",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "chocolat-cadabra",
+    "titles": ["Chocolat Cadabra", "ショコラカタブラ"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/chocolat-cadabra",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "value",
+    "titles": ["Value"],
+    "duration": null,
+    "starts": [15, 50, 90],
+    "audio": "clips/value",
+    "yt": null,
+    "nico": null,
+    "start": 15
+  },
+  {
+    "id": "night-whale",
+    "titles": [
+      "Night Whale",
+      "Yoru no Kujira",
+      "夜のくじら"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/night-whale",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "imodemoiijan",
+    "titles": ["IMODEMOIIJAN", "イモでもいいじゃん"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/imodemoiijan",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "mirror",
+    "titles": ["MIRROR"],
+    "duration": null,
+    "starts": [20, 55, 95],
+    "audio": "clips/mirror",
+    "yt": null,
+    "nico": null,
+    "start": 20
+  },
+  {
+    "id": "kitto-coaster",
+    "titles": ["Kitto Coaster", "きっとコスター"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/kitto-coaster",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "life-against-death",
+    "titles": [
+      "Life Against Death",
+      "渇愛論II",
+      "Katsuairon II"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/life-against-death",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "it-was-a-very-beautiful-june",
+    "titles": [
+      "It was a very beautiful June",
+      "Totemo Suteki na Rokugatsu Deshita",
+      "とても素敵な六月でした"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/it-was-a-very-beautiful-june",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "rule",
+    "titles": ["RuLe", "ルル"],
+    "duration": null,
+    "starts": [20, 55, 95],
+    "audio": "clips/rule",
+    "yt": null,
+    "nico": null,
+    "start": 20
+  },
+  {
+    "id": "nukegara",
+    "titles": ["Nukegara", "抜け空"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/nukegara",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "zero",
+    "titles": ["0"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/zero",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "accident-coordinator-re",
+    "titles": [
+      "Accident Coordinator:re",
+      "アクシデントコーディネイター:re"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/accident-coordinator-re",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "lazy-cruise",
+    "titles": ["Lazy Cruise", "レイジー・クルーズ"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/lazy-cruise",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "sugarvine",
+    "titles": ["Sugarvine", "シュガーバイン"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/sugarvine",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "villain-2",
+    "titles": ["Villain", "빌런", "ビラン"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/villain-2",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "shoka",
+    "titles": ["Shoka", "初夏"],
+    "duration": null,
+    "starts": [15, 50, 90],
+    "audio": "clips/shoka",
+    "yt": null,
+    "nico": null,
+    "start": 15
+  },
+  {
+    "id": "sakura-biyori-and-time-machine",
+    "titles": [
+      "Sakura Biyori and Time Machine",
+      "桜日和とタイムマシン"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/sakura-biyori-and-time-machine",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "episode-x",
+    "titles": ["Episode X"],
+    "duration": null,
+    "starts": [20, 55, 95],
+    "audio": "clips/episode-x",
+    "yt": null,
+    "nico": null,
+    "start": 20
+  },
+  {
+    "id": "take-me-to-the-beach",
+    "titles": ["Take Me to the Beach"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/take-me-to-the-beach",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "elf",
+    "titles": ["Elf", "エルフ"],
+    "duration": null,
+    "starts": [15, 50, 90],
+    "audio": "clips/elf",
+    "yt": null,
+    "nico": null,
+    "start": 15
+  },
+  {
+    "id": "bouquet-for-me",
+    "titles": [
+      "Bouquet for me",
+      "Watashi ni Hanataba",
+      "わたしに花束"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/bouquet-for-me",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "rockstar",
+    "titles": ["ROCKSTAR", "ロックスター"],
+    "duration": null,
+    "starts": [20, 55, 95],
+    "audio": "clips/rockstar",
+    "yt": null,
+    "nico": null,
+    "start": 20
+  },
+  {
+    "id": "charles",
+    "titles": ["Charles", "シャルル"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/charles",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "hibana",
+    "titles": ["Hibana", "ヒバナ"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/hibana",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "jukkai-1984",
+    "titles": [
+      "Jukkai 1984",
+      "十戒（1984）",
+      "Jukkai (1984)"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/jukkai-1984",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "matryoshka",
+    "titles": ["MATRYOSHKA", "マトリョシカ"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/matryoshka",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "gegege-no-kitaro",
+    "titles": ["Gegege no Kitaro", "ゲゲゲの鬼太郎"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/gegege-no-kitaro",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "stay-gold",
+    "titles": ["Stay Gold"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/stay-gold",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "ego-rock",
+    "titles": ["Ego Rock", "エゴロック"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/ego-rock",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "juuzoku-fritters",
+    "titles": [
+      "Juuzoku Fritters",
+      "Dependent Fritters",
+      "従属ふりったー"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/juuzoku-fritters",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "daidai-genome",
+    "titles": [
+      "Daidai Genome",
+      "Orange Genome",
+      "橙ゲノム"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/daidai-genome",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "phantom-thief-kubozono-chiyoko-absolutely-never-makes-a-mistake",
+    "titles": [
+      "Phantom Thief • Kubozono Chiyoko Absolutely Never Makes a Mistake",
+      "怪盗・窪園チヨコは絶対ミスらない",
+      "Kaitou・Kubozono Chiyoko wa Zettai Misuranai"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/phantom-thief-kubozono-chiyoko-absolutely-never-makes-a-mistake",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "cat-s-eye",
+    "titles": ["CAT'S EYE"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/cat-s-eye",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "summer-night-magic",
+    "titles": [
+      "Summer Night Magic",
+      "Natsuyo no Magic",
+      "夏夜のマジック"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/summer-night-magic",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "the-story-of-the-wind-and-i",
+    "titles": [
+      "The Story of the Wind and I",
+      "Kaze to Watashi no Monogatari",
+      "風と私の物語"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/the-story-of-the-wind-and-i",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "yuuki-no-reason",
+    "titles": ["Yuuki no Reason", "勇気の"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/yuuki-no-reason",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "wakai-say-yo",
+    "titles": ["Wakai Say Yo!", "和解Say Yo!"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/wakai-say-yo",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "magic",
+    "titles": ["MAGIC"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/magic",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "the-comet-train-s-bell-rings",
+    "titles": [
+      "The Comet Train's Bell Rings",
+      "Suisei Ressha no Bell ga Naru",
+      "彗星列車のベルが鳴る"
+    ],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/the-comet-train-s-bell-rings",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "odoru-ponpokorin",
+    "titles": ["Odoru Ponpokorin", "おどるポンポコリン"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/odoru-ponpokorin",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "soldier-game",
+    "titles": ["soldier game"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/soldier-game",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "angelseek",
+    "titles": ["Angelseek", "エンゼルシーク"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/angelseek",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "vivarium",
+    "titles": ["Vivarium", "ビバリウム"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/vivarium",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "aiaia",
+    "titles": ["AiAiA", "アイ・アイ・ア"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/aiaia",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "e-aa-sou",
+    "titles": ["E? Aa, sou.", "え？あぁ、そう。"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/e-aa-sou",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "kira",
+    "titles": ["KIRA", "綺羅"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/kira",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "haru-ni-mau",
+    "titles": ["Haru ni Mau", "春に舞う"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/haru-ni-mau",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "love-me-forever",
+    "titles": ["Love me forever!"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/love-me-forever",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "monstruo",
+    "titles": ["Monstruo", "モンストロ"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/monstruo",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "fairytale",
+    "titles": ["Fairytale,"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/fairytale",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "suki-de-ite",
+    "titles": ["Suki de Ite", "好きでいて"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/suki-de-ite",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "dnd",
+    "titles": ["DND"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/dnd",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "raven-sky",
+    "titles": ["Raven Sky"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/raven-sky",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "sayonara",
+    "titles": ["SAYONARA"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/sayonara",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "patient-a",
+    "titles": ["Patient A", "患者A"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/patient-a",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "and-july",
+    "titles": ["And July"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/and-july",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "shinka",
+    "titles": ["Shinka", "シンカ"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/shinka",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+  {
+    "id": "brain",
+    "titles": ["BRAIN"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/brain",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  }
+   ]
