@@ -826,7 +826,10 @@ function renderLeaderboardPage() {
     list = slice.map(function (x, i) {
       var rank = start + i + 1;
       return '<div class="li"><span class="name">' + rank + ". " + esc(x.username) +
-        '</span><small>record ' + x.best_streak + " · now " + x.streak + "</small></div>";
+        '</span><small>rec ' + x.best_streak +
+  " · now " + x.streak +
+  " · 1st " + (x.best_first_streak != null ? x.best_first_streak : 0) +
+  "</small></div>";
     }).join("");
   }
 
@@ -869,11 +872,13 @@ async function stats() {
       "<p>" + esc(me.username) +
       ' <button class="btn" id="bOut" style="height:36px">Log out</button></p>' +
       '<div class="stats">' +
-        "<div><b>" + me.streak + "</b><span>Streak</span></div>" +
-        "<div><b>" + me.best_streak + "</b><span>Record</span></div>" +
-        "<div><b>" + me.won + "/" + me.played + "</b><span>Won</span></div>" +
-      "</div>" +
-      "<h3 style=\"margin:12px 0 4px;font:600 1.1rem var(--display)\">Top streaks</h3>" +
+  "<div><b>" + me.streak + "</b><span>Streak</span></div>" +
+  "<div><b>" + me.best_streak + "</b><span>Record</span></div>" +
+  "<div><b>" + (me.first_streak != null ? me.first_streak : 0) + "</b><span>1st streak</span></div>" +
+  "<div><b>" + (me.best_first_streak != null ? me.best_first_streak : 0) + "</b><span>1st record</span></div>" +
+"</div>" +
+"<p style=\"text-align:center;color:var(--mute);margin:6px 0 0;font-size:.9rem\">Won " + me.won + " / " + me.played + "</p>" +
+    "<h3 style=\"margin:12px 0 4px;font:600 1.1rem var(--display)\">Top streaks</h3>" +
       '<div id="lbList">' + renderLeaderboardPage() + "</div>";
 
     $("#bOut").onclick = function () {
