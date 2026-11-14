@@ -679,75 +679,35 @@ $("#inp").onkeydown = function (e) {
 };
 
 function hideSug() { $("#sug").hidden = true; }
-
-function titleTokens(s) {
-  return String(s).normalize("NFKC").toLowerCase().split(/[^\p{L}\p{N}]+/u).filter(function (w) {
-    return w.length > 0;
-  });
-}
-function titleMatchesQuery(title, rawQ) {
-  var qFull = norm(rawQ);
-  if (!qFull) return false;
-  var tFull = norm(title);
-  if (tFull.includes(qFull)) return true;
-  var qWords = titleTokens(rawQ);
-  if (!qWords.length) return false;
-  var tWords = titleTokens(title);
-  return qWords.every(function (qw) {
-    var nq = norm(qw);
-    if (!nq) return true;
-    if (tFull.includes(nq)) return true;
-    return tWords.some(function (tw) {
-      var nt = norm(tw);
-      return nt.includes(nq) || nq.includes(nt);
-    });
-  });
-}
-function titleMatchScore(title, rawQ) {
-  var qFull = norm(rawQ);
-  var tFull = norm(title);
-  var score = 0;
-  if (tFull === qFull) score += 100;
-  if (tFull.startsWith(qFull)) score += 40;
-  if (tFull.includes(qFull)) score += 20;
-  var qWords = titleTokens(rawQ);
-  var tWords = titleTokens(title);
-  qWords.forEach(function (qw) {
-    var nq = norm(qw);
-    tWords.forEach(function (tw) {
-      var nt = norm(tw);
-      if (nt === nq) score += 15;
-      else if (nt.startsWith(nq)) score += 8;
-      else if (nt.includes(nq)) score += 4;
-    });
-  });
-  score += Math.max(0, 8 - Math.min(8, title.length / 12));
-  return score;
-}
-
 $("#inp").oninput = function (e) {
   if (S.done) return hideSug();
-  var raw = e.target.value.trim();
-  if (!raw || !norm(raw)) return hideSug();
+  var q = norm(e.target.value);
+  if (!q) return hideSug();
   var all = [];
   var seen = {};
   SONGS.forEach(function (s) {
-    (s.titles || []).forEach(function (title) {
-      if (seen[title]) return;
-      if (!titleMatchesQuery(title, raw)) return;
-      seen[title] = 1;
-      all.push(title);
+    (s.titles || []).forEach(function (t) {
+      if (!seen[t] && norm(t).includes(q)) {
+        seen[t] = 1;
+        all.push(t);
+      }
     });
   });
   all.sort(function (a, b) {
-    return titleMatchScore(b, raw) - titleMatchScore(a, raw);
+    return (norm(b).startsWith(q) ? 1 : 0) - (norm(a).startsWith(q) ? 1 : 0);
   });
-  all = all.slice(0, 5);
-  var box = $("#sug");
-  box.hidden = !all.length;
-  box.innerHTML = all.map(function (title) {
-    return "<button type='button'>" + esc(title) + "</button>";
-  }).join("");
+  all = all.slice(0, 6);
+  var s = $("#sug");
+  s.hidden = !all.length;
+  s.innerHTML = all.map(function (t) { return "<button type='button'>" + esc(t) + "</button>"; }).join("");
+};
+$("#sug").onclick = function (e) {
+  var b = e.target.closest("button");
+  if (b) {
+    $("#inp").value = b.textContent;
+    hideSug();
+    $("#inp").focus();
+  }
 };
 
 $("#bShare").onclick = function () {
