@@ -146,8 +146,7 @@ $("#bTheme").onclick=()=>{const t=document.documentElement.dataset.theme==="dark
 
 async function init(){
  themeBtn();
- SONGS=await (await fetch("songs.json?v=2",{cache:"no-store"})).json();
- song=songFor(NO);
+ SONGS=await (await fetch("songs.json")).json();
  S=j("adole");if(!S||S.no!==NO)S={no:NO,rows:[],played:[],done:false};
  $("#hard").checked=LS.getItem("adole_hard")==="1";
  $("#sub").innerHTML=`<b>No. ${NO}</b>${fmt(NO)}`;
@@ -180,17 +179,30 @@ $("#rows").onclick=e=>{const b=e.target.closest(".play");if(b)play(+b.dataset.i)
 function play(i){
  if(!song.yt||!ready)return toast("Clip not available yet");
  if(hard()&&S.played[i]&&!S.done)return;
- S.played[i]=true;save();
- pending=LEN[i];
+
+ S.played[i]=true;
+ save();
+
  clearTimeout(timer);
- 
- toast("Timestamp: "+song.start+"s");
- 
- yt.loadVideoById({
-  videoId:song.yt,
-  startSeconds:Math.max(0,Number(song.start)||0)
- });
- if(hard()&&!S.done)render();
+ pending=LEN[i];
+
+ yt.pauseVideo();
+ yt.seekTo(Number(song.start)||0,true);
+
+ const target=Number(song.start)||0;
+
+ const check=()=>{
+  if(!ready)return;
+
+  if(Math.abs(yt.getCurrentTime()-target)<1){
+   yt.playVideo();
+   if(hard()&&!S.done)render();
+  }else{
+   requestAnimationFrame(check);
+  }
+ };
+
+ requestAnimationFrame(check);
 }
 function submit(text){
  if(S.done)return;
