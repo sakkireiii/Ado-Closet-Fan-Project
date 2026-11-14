@@ -10,7 +10,7 @@ A daily Ado song-guessing game. Hear a short clip, guess the title in six rounds
 > [!success] Live now
 > A new song every day. Come back tomorrow for another.
 
-**[Play Adole²](https://ado-closet-fan-project.pages.dev/static/adole/)**
+<a href="/static/adole/" data-router-ignore>Play Adole²</a>
 
 ## How it works
 
