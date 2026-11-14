@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
-<title>Adole</title>
+<title>Adole²</title>
 <script>document.documentElement.dataset.theme=localStorage.getItem("adole_theme")||(matchMedia("(prefers-color-scheme:light)").matches?"light":"dark")</script>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&display=swap" rel="stylesheet">
@@ -120,7 +120,7 @@ dialog input:not([type=checkbox]){width:100%;height:44px;margin:4px 0 9px;backgr
 
 <div class="wrap">
 <header>
- <div class="brand"><h1>Adole</h1><p id="sub"></p></div>
+ <div class="brand"><h1>Adole²</h1><p id="sub"></p></div>
  <div class="tools">
   <button class="ic" id="bInfo" aria-label="How to play" title="How to play"><svg class="i"><use href="#i-help"/></svg></button>
   <button class="ic" id="bArc" aria-label="Previous songs" title="Previous songs"><svg class="i"><use href="#i-cal"/></svg></button>
@@ -131,24 +131,11 @@ dialog input:not([type=checkbox]){width:100%;height:44px;margin:4px 0 9px;backgr
 </header>
 
 <div class="app" id="gameUI" style="display:none">
- <div id="bar" aria-label="Clip length per round"></div>
- <section class="game card">
-  <div id="rows"></div>
-  <div id="ctl">
-   <div class="field"><input id="inp" placeholder="Type a song title" autocomplete="off"><div id="sug" hidden></div></div>
-   <button class="btn pri" id="bGo">Guess</button>
-   <button class="btn" id="bSkip" aria-label="Skip this round" title="Skip"><svg class="i"><use href="#i-skip"/></svg></button>
-  </div>
- </section>
- <section id="end" class="result card gone">
-  <h2 id="endH"></h2><p id="endT"></p>
-  <div class="vid"><div id="reveal"></div></div>
-  <div class="act"><button class="btn pri" id="bShare"><svg class="i"><use href="#i-copy"/></svg>Share result</button><a id="endL" target="_blank" rel="noopener" hidden>Open source</a></div>
-  <div id="acctNote"></div>
- </section>
-</div>
-
-<footer>Adole is an unofficial fan project. It is not affiliated with, endorsed by, or connected to Ado, Universal Music, Cloud Nine or any other official party. No songs are available to download here. Please support Ado through her official releases.</footer>
+ <div id="bar" aria-label="Clip length per round"></div><footer>
+  <p><strong>Adole²</strong> is part of <a href="/" style="color:var(--acc)">Ado-Closet</a>, an unofficial Ado fan project.</p>
+  <p>Inspired by the original <a href="https://guess.adobnb.uk" target="_blank" rel="noopener noreferrer" style="color:var(--acc)">Adole</a> (guess.adobnb.uk) — same daily-guess spirit, built separately for this site.</p>
+  <p>Not affiliated with, endorsed by, or connected to Ado, Universal Music, Cloud Nine, or any other official party. No songs are available to download here. Please support Ado through her official releases.</p>
+</footer>
 </div>
 
 <div id="toast"></div>
@@ -168,7 +155,7 @@ dialog input:not([type=checkbox]){width:100%;height:44px;margin:4px 0 9px;backgr
  <ul>
   <li>You get 6 rounds. Clips grow: 1s, 2s, 3s, 4s, 6s, 10s.</li>
   <li>Skip to unlock the next, longer clip.</li>
-  <li>Japanese, romaji and English titles all count.</li>
+  <li>Japanese, Romaji and English titles all count.</li>
   <li>Green is correct, orange shares a word, grey is wrong, black is skipped.</li>
   <li>Hard mode: each clip plays once per round.</li>
  </ul>
@@ -345,9 +332,9 @@ function setGenericMediaSession() {
   if (!("mediaSession" in navigator)) return;
   try {
     navigator.mediaSession.metadata = new MediaMetadata({
-      title: "Adole",
+      title: "Adole²",
       artist: "Daily challenge",
-      album: "Adole"
+      album: "Adole²"
     });
     ["play", "pause", "seekbackward", "seekforward", "previoustrack", "nexttrack"].forEach(function (a) {
       try { navigator.mediaSession.setActionHandler(a, function () {}); } catch (e) {}
@@ -590,14 +577,17 @@ $("#rows").onclick = function (e) {
 };
 
 function play(i) {
-  if (S.done) return;
-  if (hard() && S.played[i] && !S.done) return;
-  S.played[i] = true;
-  save();
-  if (hard() && !S.done) render();
+  // after daily is over, still allow replaying clips; hard-mode lock only during active run
+  if (!S.done && hard() && S.played[i]) return;
+  if (!S.done) {
+    S.played[i] = true;
+    save();
+    if (hard()) render();
+  }
 
   stopClip();
   setGenericMediaSession();
+  // ... rest of play() unchanged (url, startPlay, etc.)
 
   var url = clipUrl();
   var seconds = LEN[i];
