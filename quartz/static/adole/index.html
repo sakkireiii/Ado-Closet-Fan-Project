@@ -256,4 +256,111 @@ async function stats(){
  }catch(e){b.innerHTML=`<p>${esc(e.message)}</p>`;LS.removeItem("adole_acct")}
 }
 init();
+
+/* Mobile layout */
+@media (max-width: 480px) {
+  body {
+    padding: 8px;
+  }
+
+  header {
+    gap: 8px;
+    padding: 2px 0 10px;
+  }
+
+  .brand h1 {
+    font-size: 1.8rem;
+  }
+
+  .brand p {
+    font-size: 0.78rem;
+  }
+
+  .tools {
+    gap: 4px;
+  }
+
+  .ic {
+    width: 36px;
+    height: 36px;
+    border-radius: 10px;
+  }
+
+  .i {
+    width: 18px;
+    height: 18px;
+  }
+
+  .app {
+    gap: 10px;
+  }
+
+  .card {
+    padding: 10px;
+    border-radius: 14px;
+  }
+
+  .row {
+    grid-template-columns: 42px minmax(0, 1fr) 28px;
+    gap: 7px;
+    margin-bottom: 7px;
+  }
+
+  .play {
+    width: 42px;
+    height: 42px;
+  }
+
+  .slot {
+    min-height: 42px;
+    padding: 0 10px;
+  }
+
+  #ctl {
+    gap: 6px;
+    margin-top: 10px;
+  }
+
+  .field input,
+  .btn {
+    height: 44px;
+  }
+
+  .btn {
+    padding: 0 11px;
+  }
+
+  footer {
+    margin-top: 18px;
+    font-size: 0.78rem;
+  }
+}
+
+/* Extra-small phones */
+@media (max-width: 360px) {
+  .brand h1 {
+    font-size: 1.6rem;
+  }
+
+  .ic {
+    width: 32px;
+    height: 32px;
+  }
+
+  .tools {
+    gap: 3px;
+  }
+
+  .play {
+    width: 38px;
+    height: 38px;
+  }
+
+  .row {
+    grid-template-columns: 38px minmax(0, 1fr) 26px;
+    gap: 6px;
+  }
+     }
+
+ 
 </script></body></html>
