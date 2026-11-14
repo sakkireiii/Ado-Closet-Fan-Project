@@ -26,7 +26,7 @@ Made for indecisive Adomins like me who struggle to rank Ado's songs. This page 
 
 ## Ready to make your actual tier list?
 
-You can use the final tier list you made here as a basis for your actual tier list. You can also try out the template I made on TierMaker: [Ado Tier List: Entire Discography Up To Shinka](https://tiermaker.com/create/ado-tier-list-entire-discography-up-until-patient-a-19953527)
+You can use the final tier list you made here as a basis for your actual tier list. You can also try out the template I made on TierMaker: [Ado Tier List: Entire Discography Up To BRAIN](https://tiermaker.com/create/ado-tier-list-entire-discography-up-until-patient-a-19953527)
 
 ---
 
