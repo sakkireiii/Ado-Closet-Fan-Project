@@ -146,7 +146,7 @@ $("#bTheme").onclick=()=>{const t=document.documentElement.dataset.theme==="dark
 
 async function init(){
  themeBtn();
- SONGS=await (await fetch("songs.json")).json();
+ SONGS=await (await fetch("songs.json?v=2",{cache:"no-store"})).json();
  S=j("adole");if(!S||S.no!==NO)S={no:NO,rows:[],played:[],done:false};
  $("#hard").checked=LS.getItem("adole_hard")==="1";
  $("#sub").innerHTML=`<b>No. ${NO}</b>${fmt(NO)}`;
