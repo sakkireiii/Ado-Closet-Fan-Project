@@ -1,9 +1,11 @@
 ---
 title: Adole²
-description: A daily Ado song-guessing game. Hear a short clip, guess the title in six rounds, and keep your streak.
 ---
 
-Think you know Ado's discography? Put your ears to the test!
+A daily Ado song-guessing game. Hear a short clip, guess the title in six rounds, and keep your streak.
+
+
+> Think you know Ado's discography? Put your ears to the test!
 
 > [!success] Live now
 > A new song every day. Come back tomorrow for another.
@@ -18,6 +20,17 @@ Every day there's one Ado song. You get six rounds, and the clip gets longer eac
 - 🟧 shares a word with the answer
 - ⬜ wrong
 - ⬛ skipped
+
+## Daily reset
+
+A new song goes live every day at **12:00 AM Eastern Time** (Toronto time). Your streak follows the same clock, so play before it resets.
+
+| Timezone | Reset time |
+| --- | --- |
+| Eastern Time (Toronto) | 12:00 AM |
+| UTC | 5:00 AM (4:00 AM during daylight saving) |
+
+Not sure where that lands for you? Search "12:00AM Toronto time" in your own timezone.
 
 ## What's inside
 
