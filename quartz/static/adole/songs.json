@@ -947,8 +947,7 @@
     "id": "kimi-no-taion-2",
     "titles": [
       "Kimi no Taion (2021)",
-      "君の体温（2021）",
-      "Kimi no Taion 2021"
+      "君の体温（2021）"
     ],
     "duration": null,
     "starts": [
@@ -1509,7 +1508,7 @@
     "id": "precure-5-smile-go-go",
     "titles": [
       "Precure 5, smile go go!",
-      "プリキュア5、スマイル go go"
+      "プリキュア5、スマイル go go!"
     ],
     "duration": null,
     "starts": [0],
@@ -1940,7 +1939,7 @@
   },
   {
     "id": "villain-2",
-    "titles": ["Villain", "빌런", "ビラン"],
+    "titles": ["Villain (빌런)"],
     "duration": null,
     "starts": [0],
     "audio": "clips/villain-2",
@@ -2048,9 +2047,8 @@
   {
     "id": "jukkai-1984",
     "titles": [
-      "Jukkai 1984",
-      "十戒（1984）",
-      "Jukkai (1984)"
+      "Jukkai (1984)",
+      "十戒（1984）"
     ],
     "duration": null,
     "starts": [0],
