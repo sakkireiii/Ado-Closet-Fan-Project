@@ -1,0 +1,479 @@
+<!doctype html>
+<html lang="en" data-theme="dark">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover">
+<title>Adole</title>
+<script>document.documentElement.dataset.theme=localStorage.getItem("adole_theme")||(matchMedia("(prefers-color-scheme:light)").matches?"light":"dark")</script>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Shippori+Mincho:wght@600;800&display=swap" rel="stylesheet">
+<style>
+:root{color-scheme:dark;--bg:#0d0c12;--panel:#16141d;--line:#2a2733;--ink:#ece8f2;--mute:#8d8799;--acc:#8fd0ec;--on:#08202c;--g:#2f8f4e;--o:#d9822b;--x:#5b5866;--sk:#000;--skt:#8d8799}
+[data-theme=light]{color-scheme:light;--bg:#f5f3f8;--panel:#fff;--line:#dcd7e3;--ink:#1c1a22;--mute:#6b6577;--acc:#1b6f9c;--on:#fff;--x:#9a95a6;--sk:#25222c;--skt:#c9c5d2}
+*{box-sizing:border-box}
+html,body{height:100%}
+body{margin:0;background:var(--bg);color:var(--ink);font:16px/1.5 system-ui,sans-serif;padding:10px 12px 20px;padding-bottom:max(20px,env(safe-area-inset-bottom))}
+.wrap{max-width:980px;margin:0 auto;min-height:100%}
+button{font:inherit;color:inherit;cursor:pointer}
+.i{width:20px;height:20px;fill:none;stroke:currentColor;stroke-width:2;stroke-linecap:round;stroke-linejoin:round;flex:none}
+header{display:flex;align-items:center;justify-content:space-between;gap:10px;padding:2px 0 10px}
+.brand h1{margin:0;font:800 1.9rem/1 "Shippori Mincho",serif;letter-spacing:.04em}
+.brand p{margin:2px 0 0;color:var(--mute);font-size:.82rem}.brand b{color:var(--ink);margin-right:5px}
+.tools{display:flex;gap:5px;flex-shrink:0}
+.ic{display:grid;place-items:center;width:40px;height:40px;background:var(--panel);border:1px solid var(--line);border-radius:11px}
+.ic:hover{border-color:var(--acc)}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:12px}
+.app{display:grid;gap:12px;grid-template-areas:"bar" "game" "result"}
+#bar{grid-area:bar;display:flex;gap:3px;padding:0 1px}
+.game{grid-area:game}.result{grid-area:result}
+.seg{text-align:center;color:var(--mute);font-size:.7rem}
+.seg i{display:block;height:10px;border-radius:5px;background:var(--line);margin-bottom:3px}
+.seg i.cur{background:var(--acc)}.seg i.g{background:var(--g)}.seg i.o{background:var(--o)}.seg i.x{background:var(--x)}.seg i.s{background:var(--sk)}
+.row{display:grid;grid-template-columns:44px 1fr 30px;gap:8px;align-items:center;margin-bottom:7px}
+.play{display:grid;place-items:center;width:44px;height:44px;border-radius:50%;border:0;background:var(--acc);color:var(--on)}
+.play:disabled{background:var(--line);color:var(--mute);cursor:not-allowed}
+.slot{min-height:44px;display:flex;align-items:center;border:1px solid var(--line);border-radius:11px;background:var(--bg);padding:0 11px;overflow:hidden;white-space:nowrap;text-overflow:ellipsis}
+.row.cur .slot{border-color:var(--acc)}
+.slot.g,.slot.o,.slot.x{color:#fff;border-color:transparent}
+.slot.g{background:var(--g)}.slot.o{background:var(--o)}.slot.x{background:var(--x)}
+.slot.s{background:var(--sk);color:var(--skt);border-color:transparent}
+.len{color:var(--mute);font-size:.8rem;text-align:right}
+#ctl{display:flex;gap:7px;margin-top:10px}
+.field{position:relative;flex:1;min-width:0}
+.field input{width:100%;height:46px;border-radius:11px;border:1px solid var(--line);background:var(--bg);color:var(--ink);padding:0 12px;font:inherit}
+#sug{position:absolute;left:0;right:0;bottom:calc(100% + 5px);background:var(--panel);border:1px solid var(--line);border-radius:11px;overflow:hidden;z-index:5;box-shadow:0 8px 24px #0006}
+#sug button{display:block;width:100%;text-align:left;background:none;border:0;padding:10px 12px;min-height:42px}
+#sug button:hover{background:var(--line)}
+.btn{display:inline-flex;align-items:center;justify-content:center;gap:7px;height:46px;padding:0 14px;border-radius:11px;border:1px solid var(--line);background:var(--panel)}
+.btn.pri{background:var(--acc);border-color:var(--acc);color:var(--on)}
+.result h2{margin:0;font:600 1.4rem "Shippori Mincho",serif}
+.result p{margin:2px 0 10px;color:var(--mute)}
+.vid{aspect-ratio:16/9;border-radius:11px;overflow:hidden;background:#000}.vid iframe{width:100%;height:100%;border:0}
+.act{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:10px}
+.act a{color:var(--acc)}
+#acctNote{color:var(--o);margin-top:7px;font-size:.88rem}
+footer{max-width:560px;margin:18px auto 6px;text-align:center;color:var(--mute);font-size:.8rem;line-height:1.4}
+dialog{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:14px;width:min(92vw,400px);padding:18px;max-height:85vh}
+dialog::backdrop{background:#000a}
+dialog h2{margin:0 0 8px;font:600 1.35rem "Shippori Mincho",serif}
+dialog input:not([type=checkbox]){width:100%;height:44px;margin:4px 0 9px;background:var(--bg);color:var(--ink);border:1px solid var(--line);border-radius:10px;padding:0 11px;font:inherit}
+.li{padding:9px 0;border-top:1px solid var(--line)}.li small{color:var(--mute)}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;text-align:center;margin:9px 0}
+.stats b{display:block;font-size:1.55rem}.stats span{color:var(--mute);font-size:.8rem}
+.sw{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
+#toast{position:fixed;bottom:max(18px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 15px;border-radius:10px;display:none;z-index:9;font-size:.9rem}
+:focus-visible{outline:2px solid var(--acc);outline-offset:2px}
+.gone{position:fixed!important;left:-9999px;top:0;width:360px}
+
+/* Mobile tightening */
+@media(max-width:759px){
+  body{padding:8px 10px 16px}
+  header{padding:0 0 8px}
+  .brand h1{font-size:1.7rem}
+  .tools{gap:4px}
+  .ic{width:38px;height:38px}
+  .card{padding:11px}
+  .row{grid-template-columns:42px 1fr 28px;gap:7px;margin-bottom:6px}
+  .play{width:42px;height:42px}
+  .slot{min-height:42px}
+  #ctl{gap:6px;margin-top:9px}
+  .field input,.btn{height:44px}
+}
+
+/* Desktop */
+@media(min-width:760px){
+  body{padding:14px 16px 24px}
+  .brand h1{font-size:2.15rem}
+  header{padding:4px 0 12px}
+  .app{grid-template-columns:minmax(0,1.15fr) minmax(0,1fr);grid-template-areas:"game bar" "game result";align-items:start;gap:16px 26px}
+  .result{position:sticky;top:12px}
+  .card{padding:14px}
+}
+
+@media(max-height:520px) and (orientation:landscape){
+  .brand h1{font-size:1.55rem}
+  header{padding-bottom:4px}
+}
+</style>
+</head>
+<body>
+<svg style="display:none" aria-hidden="true">
+ <symbol id="i-help"><circle cx="12" cy="12" r="10"/><path d="M9.1 9a3 3 0 0 1 5.8 1c0 2-3 3-3 3M12 17h.01"/></symbol>
+ <symbol id="i-cal"><rect x="3" y="4" width="18" height="18" rx="2"/><path d="M16 2v4M8 2v4M3 10h18"/></symbol>
+ <symbol id="i-stats"><path d="M3 3v18h18M7 16v-5M12 16V7M17 16v-8"/></symbol>
+ <symbol id="i-set"><path d="M21 4h-7M10 4H3M21 12h-9M8 12H3M21 20h-5M12 20H3M14 2v4M8 10v4M16 18v4"/></symbol>
+ <symbol id="i-sun"><circle cx="12" cy="12" r="4"/><path d="M12 2v2M12 20v2M4.9 4.9l1.4 1.4M17.7 17.7l1.4 1.4M2 12h2M20 12h2M4.9 19.1l1.4-1.4M17.7 6.3l1.4-1.4"/></symbol>
+ <symbol id="i-moon"><path d="M21 12.8A9 9 0 1 1 11.2 3a7 7 0 0 0 9.8 9.8z"/></symbol>
+ <symbol id="i-play"><path d="M8 5v14l11-7z" fill="currentColor" stroke="none"/></symbol>
+ <symbol id="i-skip"><path d="M5 4l10 8-10 8z" fill="currentColor" stroke="none"/><path d="M19 5v14"/></symbol>
+ <symbol id="i-copy"><rect x="9" y="9" width="11" height="11" rx="2"/><path d="M5 15V5a2 2 0 0 1 2-2h10"/></symbol>
+</svg>
+
+<div class="wrap">
+<header>
+ <div class="brand"><h1>Adole</h1><p id="sub"></p></div>
+ <div class="tools">
+  <button class="ic" id="bInfo" aria-label="How to play" title="How to play"><svg class="i"><use href="#i-help"/></svg></button>
+  <button class="ic" id="bArc" aria-label="Previous songs" title="Previous songs"><svg class="i"><use href="#i-cal"/></svg></button>
+  <button class="ic" id="bStat" aria-label="Stats and leaderboard" title="Stats"><svg class="i"><use href="#i-stats"/></svg></button>
+  <button class="ic" id="bSet" aria-label="Settings" title="Settings"><svg class="i"><use href="#i-set"/></svg></button>
+  <button class="ic" id="bTheme" aria-label="Switch light or dark theme" title="Theme"></button>
+ </div>
+</header>
+
+<div class="app" id="gameUI" style="display:none">
+ <div id="bar" aria-label="Clip length per round"></div>
+ <section class="game card">
+  <div id="rows"></div>
+  <div id="ctl">
+   <div class="field"><input id="inp" placeholder="Type a song title" autocomplete="off"><div id="sug" hidden></div></div>
+   <button class="btn pri" id="bGo">Guess</button>
+   <button class="btn" id="bSkip" aria-label="Skip this round" title="Skip"><svg class="i"><use href="#i-skip"/></svg></button>
+  </div>
+ </section>
+ <section id="end" class="result card gone">
+  <h2 id="endH"></h2><p id="endT"></p>
+  <div class="vid"><div id="yt"></div></div>
+  <div class="act"><button class="btn pri" id="bShare"><svg class="i"><use href="#i-copy"/></svg>Share result</button><a id="endL" target="_blank" rel="noopener" hidden>Open on YouTube</a></div>
+  <div id="acctNote"></div>
+ </section>
+</div>
+
+<footer>Adole is an unofficial fan project. It is not affiliated with, endorsed by, or connected to Ado, Universal Music, Cloud Nine or any other official party. No songs are available to download here. Please support Ado through her official releases.</footer>
+</div>
+
+<div id="toast"></div>
+
+<dialog id="dLogin">
+ <h2>Log in to play</h2>
+ <p style="margin:0 0 12px;color:var(--mute);font-size:.92rem">Create a username + PIN (or log in with an existing one) to play Adole and keep your streak.</p>
+ <input id="loginU" placeholder="Username (3–20 letters, numbers or _)" maxlength="20" autocomplete="username">
+ <input id="loginP" type="password" placeholder="PIN (4+ characters)" autocomplete="current-password">
+ <div id="loginErr" style="color:var(--o);min-height:1.3em;margin:4px 0 8px;font-size:.9rem"></div>
+ <button class="btn pri" id="bLogin" style="width:100%">Log in / Sign up</button>
+</dialog>
+
+<dialog id="dInfo"><h2>How to play</h2>
+ <p>Each day has one Ado song. Play the clip, then guess the title.</p>
+ <ul><li>You get 6 rounds. Clips grow: 1s, 2s, 3s, 4s, 6s, 10s.</li>
+ <li>Skip to unlock the next, longer clip.</li>
+ <li>Japanese, romaji and English titles all count.</li>
+ <li>Green is correct, orange shares a word, grey is wrong, black is skipped.</li>
+ <li>Hard mode: each clip plays once per round.</li></ul>
+ <button class="btn pri" data-close>Got it</button></dialog>
+<dialog id="dArc"><h2>Previous songs</h2><input type="month" id="arcM"><div id="arcL"></div><button class="btn" data-close>Close</button></dialog>
+<dialog id="dSet"><h2>Settings</h2>
+ <label class="sw"><span>Hard mode<br><small style="color:var(--mute)">Locks once you start today's round</small></span><input type="checkbox" id="hard" style="width:24px;height:24px"></label>
+ <button class="btn" data-close>Close</button></dialog>
+<dialog id="dStat"><h2>Stats</h2><div id="statBody"></div><button class="btn" data-close>Close</button></dialog>
+
+<script>
+const CFG = {
+  launch: "2026-11-15",
+  site: location.origin + location.pathname,
+  supa: "https://pbxzeuuimcivedyynupt.supabase.co",          // ← put your Supabase project URL here (e.g. https://xxxx.supabase.co)
+  key: "sb_publishable_C5h2KPyX0ALvItXWCpU6EQ_m6SRII_U"            // ← put your anon / public key here
+};
+
+const LEN = [1,2,3,4,6,10], $ = s => document.querySelector(s), LS = localStorage;
+const ic = n => `<svg class="i" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+const esc = s => String(s).replace(/[&<>"']/g, c => "&#" + c.charCodeAt(0) + ";");
+const norm = s => s.normalize("NFKC").toLowerCase().replace(/[^\p{L}\p{N}]+/gu, "");
+const words = s => s.normalize("NFKC").toLowerCase().split(/[^\p{L}\p{N}]+/u).filter(w => w.length > 1);
+const launch = (([y,m,d]) => Math.floor(Date.UTC(y, m-1, d) / 864e5))(CFG.launch.split("-").map(Number));
+const NO = Math.max(1, Math.floor((Date.now() + 288e5) / 864e5) - launch + 1);
+const fmt = n => new Date((launch + n - 1) * 864e5).toLocaleDateString("en-GB", {day:"numeric", month:"short", year:"numeric", timeZone:"UTC"});
+
+let SONGS = [], song, S, yt, ready = false, timer, pending = 0;
+
+const j = k => { try { return JSON.parse(LS.getItem(k)) } catch { return null } };
+const save = () => LS.setItem("adole", JSON.stringify(S));
+const toast = t => { const e = $("#toast"); e.textContent = t; e.style.display = "block"; setTimeout(() => e.style.display = "none", 2200) };
+const songFor = n => SONGS[(n - 1) % SONGS.length];
+const hard = () => $("#hard").checked;
+const acct = () => j("adole_acct");
+
+function themeBtn() {
+  const d = document.documentElement.dataset.theme === "dark";
+  $("#bTheme").innerHTML = ic(d ? "sun" : "moon");
+}
+$("#bTheme").onclick = () => {
+  const t = document.documentElement.dataset.theme === "dark" ? "light" : "dark";
+  document.documentElement.dataset.theme = t;
+  LS.setItem("adole_theme", t);
+  themeBtn();
+};
+
+/* ───────── Auth ───────── */
+async function rpc(fn, body) {
+  const r = await fetch(CFG.supa + "/rest/v1/rpc/" + fn, {
+    method: "POST",
+    headers: {
+      apikey: CFG.key,
+      ...(CFG.key.startsWith("eyJ") ? { authorization: "Bearer " + CFG.key } : {}),
+      "content-type": "application/json"
+    },
+    body: JSON.stringify(body)
+  });
+  const d = await r.json();
+  if (!r.ok) throw new Error(d.message || "Request failed");
+  return d;
+}
+
+function showLogin() {
+  $("#gameUI").style.display = "none";
+  $("#dLogin").showModal();
+}
+
+function unlockGame() {
+  $("#gameUI").style.display = "";
+  render();
+  if (!LS.getItem("adole_seen")) {
+    $("#dInfo").showModal();
+    LS.setItem("adole_seen", "1");
+  }
+}
+
+$("#bLogin").onclick = async () => {
+  const u = $("#loginU").value.trim().toLowerCase();
+  const p = $("#loginP").value;
+  const err = $("#loginErr");
+  err.textContent = "";
+  try {
+    await rpc("adole_login", { p_username: u, p_pin: p });
+    LS.setItem("adole_acct", JSON.stringify({ u, p }));
+    $("#dLogin").close();
+    unlockGame();
+    if (S.done) sendResult();
+  } catch (e) {
+    err.textContent = e.message;
+  }
+};
+
+/* ───────── Init ───────── */
+async function init() {
+  themeBtn();
+  SONGS = await (await fetch("songs.json")).json();
+  song = songFor(NO);
+  S = j("adole");
+  if (!S || S.no !== NO) S = { no: NO, rows: [], played: [], done: false };
+  $("#hard").checked = LS.getItem("adole_hard") === "1";
+  $("#sub").innerHTML = `<b>No. ${NO}</b> ${fmt(NO)}`;
+
+  // require account
+  if (!CFG.supa || !CFG.key) {
+    // no backend configured → still allow play (for local testing)
+    unlockGame();
+  } else {
+    const a = acct();
+    if (a) {
+      try {
+        await rpc("adole_login", { p_username: a.u, p_pin: a.p });
+        unlockGame();
+      } catch {
+        LS.removeItem("adole_acct");
+        showLogin();
+      }
+    } else {
+      showLogin();
+    }
+  }
+
+  // YouTube
+  const s = document.createElement("script");
+  s.src = "https://www.youtube.com/iframe_api";
+  document.head.append(s);
+}
+
+window.onYouTubeIframeAPIReady = () => {
+  if (!song || !song.yt) return;
+  yt = new YT.Player("yt", {
+    width: "100%", height: "100%", videoId: song.yt,
+    playerVars: { playsinline: 1 },
+    events: {
+      onReady: () => ready = true,
+      onStateChange: e => {
+        if (e.data === 1 && pending) {
+          clearTimeout(timer);
+          timer = setTimeout(() => yt.pauseVideo(), pending * 1000);
+          pending = 0;
+        }
+      }
+    }
+  });
+};
+
+/* ───────── Game ───────── */
+function render() {
+  const cur = S.done ? 6 : S.rows.length, h = hard();
+  $("#rows").innerHTML = LEN.map((l, i) => {
+    const r = S.rows[i], lock = h && S.played[i] && !S.done;
+    return `<div class="row${i === cur ? " cur" : ""}">
+      <button class="play" data-i="${i}" ${i > cur ? 'style="visibility:hidden"' : ""} ${lock ? "disabled" : ""} aria-label="Play \( {l} second clip"> \){ic("play")}</button>
+      <div class="slot \( {r ? r.t : ""}"> \){r ? esc(r.t === "s" ? "Skipped" : r.text) : ""}</div>
+      <span class="len">${l}s</span>
+    </div>`;
+  }).join("");
+  $("#bar").innerHTML = LEN.map((l, i) => {
+    const r = S.rows[i], c = r ? r.t : (i === cur ? "cur" : "");
+    return `<div class="seg" style="flex:\( {l}"><i class=" \){c}"></i>${l}s</div>`;
+  }).join("");
+  $("#ctl").hidden = S.done;
+  $("#hard").disabled = S.rows.length > 0 || S.played.some(Boolean);
+  $("#end").classList.toggle("gone", !S.done);
+  if (S.done) {
+    const ok = S.rows.some(r => r.t === "g");
+    const link = song.link || (song.yt ? "https://www.youtube.com/watch?v=" + song.yt : "");
+    $("#endH").textContent = ok ? "Correct" : "Not this time";
+    $("#endT").textContent = song.titles.join(" / ");
+    const a = $("#endL"); a.hidden = !link; if (link) a.href = link;
+  }
+}
+
+$("#rows").onclick = e => {
+  const b = e.target.closest(".play");
+  if (b) play(+b.dataset.i);
+};
+
+function play(i) {
+  if (!song.yt || !ready) return toast("Clip not available yet");
+  if (hard() && S.played[i] && !S.done) return;
+  S.played[i] = true; save();
+  pending = LEN[i]; clearTimeout(timer);
+  yt.seekTo(song.start || 0, true); yt.playVideo();
+  if (hard() && !S.done) render();
+}
+
+function submit(text) {
+  if (S.done) return;
+  let t = "x", n = norm(text);
+  if (song.titles.some(x => norm(x) === n)) t = "g";
+  else {
+    const tw = new Set(song.titles.flatMap(words));
+    if (words(text).some(w => tw.has(w))) t = "o";
+  }
+  S.rows.push({ t, text }); finishCheck();
+}
+
+function finishCheck() {
+  if (S.rows.some(r => r.t === "g") || S.rows.length >= 6) {
+    S.done = true;
+    clearTimeout(timer);
+    yt && yt.pauseVideo && yt.pauseVideo();
+  }
+  save(); render();
+  $("#inp").value = ""; hideSug();
+  if (S.done) sendResult();
+}
+
+$("#bGo").onclick = () => { const v = $("#inp").value.trim(); if (v) submit(v) };
+$("#bSkip").onclick = () => { S.rows.push({ t: "s", text: "" }); finishCheck() };
+$("#inp").onkeydown = e => { if (e.key === "Enter") $("#bGo").click() };
+
+function hideSug() { $("#sug").hidden = true }
+$("#inp").oninput = e => {
+  const q = norm(e.target.value);
+  if (!q) return hideSug();
+  const all = [...new Set(SONGS.flatMap(s => s.titles))]
+    .filter(t => norm(t).includes(q))
+    .sort((a, b) => (norm(b).startsWith(q)) - (norm(a).startsWith(q)))
+    .slice(0, 6);
+  const s = $("#sug");
+  s.hidden = !all.length;
+  s.innerHTML = all.map(t => `<button>${esc(t)}</button>`).join("");
+};
+$("#sug").onclick = e => {
+  const b = e.target.closest("button");
+  if (b) { $("#inp").value = b.textContent; hideSug(); $("#inp").focus() }
+};
+
+$("#bShare").onclick = () => {
+  const sq = { g: "🟩", o: "🟧", x: "⬜", s: "⬛" };
+  const line = LEN.map((_, i) => S.rows[i] ? sq[S.rows[i].t] : "⬛").join("");
+  const k = S.rows.findIndex(r => r.t === "g");
+  const txt = `Adole No. \( {NO} ( \){fmt(NO)})\n\( {line}\n \){k >= 0 ? k + 1 : "X"}/6\n${CFG.site}`;
+  (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
+    .then(() => toast("Result copied"), () => prompt("Copy your result:", txt));
+};
+
+$("#hard").onchange = e => {
+  LS.setItem("adole_hard", e.target.checked ? "1" : "0");
+  render();
+};
+
+document.querySelectorAll("[data-close]").forEach(b => b.onclick = () => b.closest("dialog").close());
+$("#bInfo").onclick = () => $("#dInfo").showModal();
+$("#bSet").onclick = () => $("#dSet").showModal();
+$("#bArc").onclick = () => {
+  const m = $("#arcM");
+  if (!m.value) m.value = new Date(Date.now() + 288e5).toISOString().slice(0, 7);
+  arc(); $("#dArc").showModal();
+};
+$("#arcM").onchange = arc;
+
+function arc() {
+  const m = $("#arcM").value, out = [];
+  for (let n = NO - 1; n >= 1; n--) {
+    const d = new Date((launch + n - 1) * 864e5).toISOString().slice(0, 7);
+    if (d === m) out.push(`<div class="li"><small>#${n} · \( {fmt(n)}</small><br> \){esc(songFor(n).titles[0])}</div>`);
+  }
+  $("#arcL").innerHTML = out.join("") || `<p style="color:var(--mute)">No past songs this month.</p>`;
+}
+
+/* ───────── Results + Stats ───────── */
+async function sendResult() {
+  const a = acct();
+  if (!CFG.supa || !a || S.sent) return;
+  try {
+    await rpc("adole_submit", {
+      p_username: a.u, p_pin: a.p,
+      p_solved: S.rows.some(r => r.t === "g"),
+      p_guesses: S.rows.length,
+      p_hard: hard()
+    });
+    S.sent = true; save();
+  } catch (e) {
+    $("#acctNote").textContent = "Could not save your streak: " + e.message;
+  }
+}
+
+$("#bStat").onclick = () => { $("#dStat").showModal(); stats() };
+
+async function stats() {
+  const b = $("#statBody");
+  if (!CFG.supa) {
+    b.innerHTML = "<p>Accounts are not set up yet.</p>";
+    return;
+  }
+  const a = acct();
+  if (!a) {
+    b.innerHTML = `<p>You need to be logged in to see stats.</p>`;
+    return;
+  }
+  try {
+    const me = await rpc("adole_login", { p_username: a.u, p_pin: a.p });
+    const lb = await rpc("adole_leaderboard", {});
+    b.innerHTML = `
+      <p>${esc(me.username)} <button class="btn" id="bOut" style="height:36px;margin-left:8px">Log out</button></p>
+      <div class="stats">
+        <div><b>${me.streak}</b><span>Streak</span></div>
+        <div><b>${me.best_streak}</b><span>Record</span></div>
+        <div><b>\( {me.won}/ \){me.played}</b><span>Won</span></div>
+      </div>
+      <h3 style="margin:14px 0 4px;font:600 1.1rem 'Shippori Mincho',serif">Top streaks</h3>
+      \( {lb.map(x => `<div class="li"> \){esc(x.username)} <small>record ${x.best_streak} · now ${x.streak}</small></div>`).join("")}`;
+    $("#bOut").onclick = () => {
+      LS.removeItem("adole_acct");
+      $("#dStat").close();
+      showLogin();
+    };
+  } catch (e) {
+    b.innerHTML = `<p>${esc(e.message)}</p>`;
+    LS.removeItem("adole_acct");
+  }
+}
+
+init();
+</script>
+</body>
+</html>
