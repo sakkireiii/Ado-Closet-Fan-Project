@@ -125,8 +125,139 @@ dialog input:not([type=checkbox]){width:100%;height:44px;margin:4px 0 10px;backg
 <dialog id="dStat"><h2>Stats</h2><div id="statBody"></div><button class="btn" data-close>Close</button></dialog>
 
 <script>
-const CFG={launch:"2026-11-14",site:location.origin+location.pathname,supa:"https://pbxzeuuimcivedyynupt.supabase.co",key:"sb_publishable_C5h2KPyX0ALvItXWCpU6EQ_m6SRII_U"};
+const CFG={launch:"2026-11-15",site:location.origin+location.pathname,supa:"",key:""};
 const LEN=[1,2,3,4,6,10],$=s=>document.querySelector(s),LS=localStorage;
+const ic=n=>`<svg class="i" aria-hidden="true"><use href="#i-${n}"/></svg>`;
+const esc=s=>String(s).replace(/[&<>"']/g,c=>"&#"+c.charCodeAt(0)+";");
+const norm=s=>s.normalize("NFKC").toLowerCase().replace(/[^\p{L}\p{N}]+/gu,"");
+const words=s=>s.normalize("NFKC").toLowerCase().split(/[^\p{L}\p{N}]+/u).filter(w=>w.length>1);
+const launch=(([y,m,d])=>Math.floor(Date.UTC(y,m-1,d)/864e5))(CFG.launch.split("-").map(Number));
+const NO=Math.max(1,Math.floor((Date.now()+288e5)/864e5)-launch+1);
+const fmt=n=>new Date((launch+n-1)*864e5).toLocaleDateString("en-GB",{day:"numeric",month:"short",year:"numeric",timeZone:"UTC"});
+let SONGS=[],song,S,yt,ready=false,timer,pending=0;
+const j=k=>{try{return JSON.parse(LS.getItem(k))}catch{return null}};
+const save=()=>LS.setItem("adole",JSON.stringify(S));
+const toast=t=>{const e=$("#toast");e.textContent=t;e.style.display="block";setTimeout(()=>e.style.display="none",2200)};
+const songFor=n=>SONGS[(n-1)%SONGS.length];
+const hard=()=>$("#hard").checked;
+
+function themeBtn(){const d=document.documentElement.dataset.theme==="dark";$("#bTheme").innerHTML=ic(d?"sun":"moon")}
+$("#bTheme").onclick=()=>{const t=document.documentElement.dataset.theme==="dark"?"light":"dark";document.documentElement.dataset.theme=t;LS.setItem("adole_theme",t);themeBtn()};
+
+async function init(){
+ themeBtn();
+ SONGS=await (await fetch("songs.json")).json();
+ song=songFor(NO);
+ S=j("adole");if(!S||S.no!==NO)S={no:NO,rows:[],played:[],done:false};
+ $("#hard").checked=LS.getItem("adole_hard")==="1";
+ $("#sub").innerHTML=`<b>No. ${NO}</b>${fmt(NO)}`;
+ render();
+ if(!LS.getItem("adole_seen")){$("#dInfo").showModal();LS.setItem("adole_seen","1")}
+ const s=document.createElement("script");s.src="https://www.youtube.com/iframe_api";document.head.append(s);
+}
+window.onYouTubeIframeAPIReady=()=>{
+ if(!song||!song.yt)return;
+ yt=new YT.Player("yt",{width:"100%",height:"100%",videoId:song.yt,playerVars:{playsinline:1},events:{
+  onReady:()=>ready=true,
+  onStateChange:e=>{if(e.data===1&&pending){clearTimeout(timer);timer=setTimeout(()=>yt.pauseVideo(),pending*1000);pending=0}}}});
+};
+function render(){
+ const cur=S.done?6:S.rows.length,h=hard();
+ $("#rows").innerHTML=LEN.map((l,i)=>{
+  const r=S.rows[i],lock=h&&S.played[i]&&!S.done;
+  return `<div class="row${i===cur?" cur":""}"><button class="play" data-i="${i}" ${i>cur?'style="visibility:hidden"':""} ${lock?"disabled":""} aria-label="Play ${l} second clip">${ic("play")}</button><div class="slot ${r?r.t:""}">${r?esc(r.t==="s"?"Skipped":r.text):""}</div><span class="len">${l}s</span></div>`}).join("");
+ $("#bar").innerHTML=LEN.map((l,i)=>{const r=S.rows[i],c=r?r.t:(i===cur?"cur":"");return `<div class="seg" style="flex:${l}"><i class="${c}"></i>${l}s</div>`}).join("");
+ $("#ctl").hidden=S.done;$("#hard").disabled=S.rows.length>0||S.played.some(Boolean);
+ $("#end").classList.toggle("gone",!S.done);
+ if(S.done){
+  const ok=S.rows.some(r=>r.t==="g"),link=song.link||(song.yt?"https://www.youtube.com/watch?v="+song.yt:"");
+  $("#endH").textContent=ok?"Correct":"Not this time";
+  $("#endT").textContent=song.titles.join(" / ");
+  const a=$("#endL");a.hidden=!link;if(link)a.href=link;
+ }
+}
+$("#rows").onclick=e=>{const b=e.target.closest(".play");if(b)play(+b.dataset.i)};
+function play(i){
+ if(!song.yt||!ready)return toast("Clip not available yet");
+ if(hard()&&S.played[i]&&!S.done)return;
+ S.played[i]=true;save();pending=LEN[i];clearTimeout(timer);
+ yt.seekTo(song.start||0,true);yt.playVideo();
+ if(hard()&&!S.done)render();
+}
+function submit(text){
+ if(S.done)return;
+ let t="x",n=norm(text);
+ if(song.titles.some(x=>norm(x)===n))t="g";
+ else{const tw=new Set(song.titles.flatMap(words));if(words(text).some(w=>tw.has(w)))t="o"}
+ S.rows.push({t,text});finishCheck();
+}
+function finishCheck(){
+ if(S.rows.some(r=>r.t==="g")||S.rows.length>=6){S.done=true;clearTimeout(timer);yt&&yt.pauseVideo&&yt.pauseVideo()}
+ save();render();$("#inp").value="";hideSug();if(S.done)sendResult();
+}
+$("#bGo").onclick=()=>{const v=$("#inp").value.trim();if(v)submit(v)};
+$("#bSkip").onclick=()=>{S.rows.push({t:"s",text:""});finishCheck()};
+$("#inp").onkeydown=e=>{if(e.key==="Enter")$("#bGo").click()};
+function hideSug(){$("#sug").hidden=true}
+$("#inp").oninput=e=>{
+ const q=norm(e.target.value);if(!q)return hideSug();
+ const all=[...new Set(SONGS.flatMap(s=>s.titles))].filter(t=>norm(t).includes(q))
+  .sort((a,b)=>(norm(b).startsWith(q))-(norm(a).startsWith(q))).slice(0,6);
+ const s=$("#sug");s.hidden=!all.length;
+ s.innerHTML=all.map(t=>`<button>${esc(t)}</button>`).join("");
+};
+$("#sug").onclick=e=>{const b=e.target.closest("button");if(b){$("#inp").value=b.textContent;hideSug();$("#inp").focus()}};
+$("#bShare").onclick=()=>{
+ const sq={g:"🟩",o:"🟧",x:"⬜",s:"⬛"};
+ const line=LEN.map((_,i)=>S.rows[i]?sq[S.rows[i].t]:"⬛").join("");
+ const k=S.rows.findIndex(r=>r.t==="g");
+ const txt=`Adole No. ${NO} (${fmt(NO)})\n${line}\n${k>=0?k+1:"X"}/6\n${CFG.site}`;
+ (navigator.clipboard?navigator.clipboard.writeText(txt):Promise.reject()).then(()=>toast("Result copied"),()=>prompt("Copy your result:",txt));
+};
+$("#hard").onchange=e=>{LS.setItem("adole_hard",e.target.checked?"1":"0");render()};
+document.querySelectorAll("[data-close]").forEach(b=>b.onclick=()=>b.closest("dialog").close());
+$("#bInfo").onclick=()=>$("#dInfo").showModal();
+$("#bSet").onclick=()=>$("#dSet").showModal();
+$("#bArc").onclick=()=>{const m=$("#arcM");if(!m.value)m.value=new Date(Date.now()+288e5).toISOString().slice(0,7);arc();$("#dArc").showModal()};
+$("#arcM").onchange=arc;
+function arc(){
+ const m=$("#arcM").value,out=[];
+ for(let n=NO-1;n>=1;n--){const d=new Date((launch+n-1)*864e5).toISOString().slice(0,7);if(d===m)out.push(`<div class="li"><small>#${n} · ${fmt(n)}</small><br>${esc(songFor(n).titles[0])}</div>`)}
+ $("#arcL").innerHTML=out.join("")||`<p style="color:var(--mute)">No past songs this month.</p>`;
+}
+/* accounts: username + pin, record stored on the server */
+const acct=()=>j("adole_acct");
+async function rpc(fn,b){
+ const r=await fetch(CFG.supa+"/rest/v1/rpc/"+fn,{method:"POST",headers:{apikey:CFG.key,...(CFG.key.startsWith("eyJ")?{authorization:"Bearer "+CFG.key}:{}),"content-type":"application/json"},body:JSON.stringify(b)});
+ const d=await r.json();if(!r.ok)throw new Error(d.message||"Request failed");return d;
+}
+async function sendResult(){
+ const a=acct();if(!CFG.supa||!a||S.sent)return;
+ try{await rpc("adole_submit",{p_username:a.u,p_pin:a.p,p_solved:S.rows.some(r=>r.t==="g"),p_guesses:S.rows.length,p_hard:hard()});S.sent=true;save()}
+ catch(e){$("#acctNote").textContent="Could not save your streak: "+e.message}
+}
+$("#bStat").onclick=()=>{$("#dStat").showModal();stats()};
+async function stats(){
+ const b=$("#statBody");
+ if(!CFG.supa){b.innerHTML="<p>Accounts are not set up yet.</p>";return}
+ const a=acct();
+ if(!a){b.innerHTML=`<p>Pick a username and a PIN (4+ characters). After clearing your browser, log in again with them to get your record back.</p>
+  <input id="u" placeholder="Username" maxlength="20" autocomplete="username"><input id="p" type="password" placeholder="PIN" autocomplete="current-password">
+  <button class="btn pri" id="bLog">Log in or sign up</button><div id="err" style="color:var(--o)"></div>`;
+  $("#bLog").onclick=async()=>{const u=$("#u").value.trim().toLowerCase(),p=$("#p").value;
+   try{await rpc("adole_login",{p_username:u,p_pin:p});LS.setItem("adole_acct",JSON.stringify({u,p}));S.sent=false;save();stats();if(S.done)sendResult()}
+   catch(e){$("#err").textContent=e.message}};return}
+ try{
+  const me=await rpc("adole_login",{p_username:a.u,p_pin:a.p}),lb=await rpc("adole_leaderboard",{});
+  b.innerHTML=`<p>${esc(me.username)} <button class="btn" id="bOut" style="height:36px">Log out</button></p>
+   <div class="stats"><div><b>${me.streak}</b><span>Streak</span></div><div><b>${me.best_streak}</b><span>Record</span></div><div><b>${me.won}/${me.played}</b><span>Won</span></div></div>
+   <h3>Top streaks</h3>${lb.map(x=>`<div class="li">${esc(x.username)} <small>record ${x.best_streak} · now ${x.streak}</small></div>`).join("")}`;
+  $("#bOut").onclick=()=>{LS.removeItem("adole_acct");stats()};
+ }catch(e){b.innerHTML=`<p>${esc(e.message)}</p>`;LS.removeItem("adole_acct")}
+}
+init();
+</script></body></html>
+LS=localStorage;
 const ic=n=>`<svg class="i" aria-hidden="true"><use href="#i-${n}"/></svg>`;
 const esc=s=>String(s).replace(/[&<>"']/g,c=>"&#"+c.charCodeAt(0)+";");
 const norm=s=>s.normalize("NFKC").toLowerCase().replace(/[^\p{L}\p{N}]+/gu,"");
