@@ -131,7 +131,24 @@ dialog input:not([type=checkbox]){width:100%;height:44px;margin:4px 0 9px;backgr
 </header>
 
 <div class="app" id="gameUI" style="display:none">
- <div id="bar" aria-label="Clip length per round"></div><footer>
+ <div id="bar" aria-label="Clip length per round"></div>
+ <section class="game card">
+  <div id="rows"></div>
+  <div id="ctl">
+   <div class="field"><input id="inp" placeholder="Type a song title" autocomplete="off"><div id="sug" hidden></div></div>
+   <button class="btn pri" id="bGo">Guess</button>
+   <button class="btn" id="bSkip" aria-label="Skip this round" title="Skip"><svg class="i"><use href="#i-skip"/></svg></button>
+  </div>
+ </section>
+ <section id="end" class="result card gone">
+  <h2 id="endH"></h2><p id="endT"></p>
+  <div class="vid"><div id="reveal"></div></div>
+  <div class="act"><button class="btn pri" id="bShare"><svg class="i"><use href="#i-copy"/></svg>Share result</button><a id="endL" target="_blank" rel="noopener" hidden>Open source</a></div>
+  <div id="acctNote"></div>
+ </section>
+</div>
+
+<footer>
   <p><strong>Adole²</strong> is part of <a href="/" style="color:var(--acc)">Ado-Closet</a>, an unofficial Ado fan project.</p>
   <p>Inspired by the original <a href="https://guess.adobnb.uk" target="_blank" rel="noopener noreferrer" style="color:var(--acc)">Adole</a> (guess.adobnb.uk) — same daily-guess spirit, built separately for this site.</p>
   <p>Not affiliated with, endorsed by, or connected to Ado, Universal Music, Cloud Nine, or any other official party. No songs are available to download here. Please support Ado through her official releases.</p>
@@ -142,7 +159,7 @@ dialog input:not([type=checkbox]){width:100%;height:44px;margin:4px 0 9px;backgr
 
 <dialog id="dLogin">
  <h2>Log in to play</h2>
- <p style="margin:0 0 12px;color:var(--mute);font-size:.92rem">Create a username + PIN (or log in with an existing one) to play Adole and keep your streak.</p>
+ <p style="margin:0 0 12px;color:var(--mute);font-size:.92rem">Create a username + PIN (or log in with an existing one) to play Adole² and keep your streak.</p>
  <input id="loginU" placeholder="Username (3-20 letters, numbers or _)" maxlength="20" autocomplete="username">
  <input id="loginP" type="password" placeholder="PIN (4+ characters)" autocomplete="current-password">
  <div id="loginErr" style="color:var(--o);min-height:1.3em;margin:4px 0 8px;font-size:.9rem"></div>
@@ -537,7 +554,7 @@ function render() {
     var r = S.rows[i];
     var lock = h && S.played[i] && !S.done;
     var hidden = i > cur ? ' style="visibility:hidden"' : "";
-    var disabled = (lock || S.done) ? " disabled" : "";
+    var disabled = lock ? " disabled" : "";
     var curClass = i === cur && !S.done ? " cur" : "";
     var slotClass = r ? r.t : "";
     var slotText = r ? (r.t === "s" ? "Skipped" : esc(r.text)) : "";
@@ -699,7 +716,7 @@ $("#bShare").onclick = function () {
     return S.rows[i] ? sq[S.rows[i].t] : "⬛";
   }).join("");
   var k = S.rows.findIndex(function (r) { return r.t === "g"; });
-  var txt = "Adole No. " + NO + " (" + fmt(NO) + ")\n" + line + "\n" +
+  var txt = "Adole² No. " + NO + " (" + fmt(NO) + ")\n" + line + "\n" +
     (k >= 0 ? (k + 1) : "X") + "/6\n" + CFG.site;
   (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
     .then(function () { toast("Result copied"); })
