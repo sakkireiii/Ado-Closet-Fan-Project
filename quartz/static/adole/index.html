@@ -146,7 +146,7 @@ $("#bTheme").onclick=()=>{const t=document.documentElement.dataset.theme==="dark
 
 async function init(){
  themeBtn();
- SONGS=await (await fetch("songs.json")).json();
+ SONGS=await (await fetch("songs.json?v=2",{cache:"no-store"})).json();
  song=songFor(NO);
  S=j("adole");if(!S||S.no!==NO)S={no:NO,rows:[],played:[],done:false};
  $("#hard").checked=LS.getItem("adole_hard")==="1";
@@ -183,6 +183,9 @@ function play(i){
  S.played[i]=true;save();
  pending=LEN[i];
  clearTimeout(timer);
+ 
+ toast("Timestamp: "+song.start+"s");
+ 
  yt.loadVideoById({
   videoId:song.yt,
   startSeconds:Math.max(0,Number(song.start)||0)
