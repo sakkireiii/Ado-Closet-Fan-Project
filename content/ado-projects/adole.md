@@ -10,11 +10,11 @@ A daily Ado song-guessing game. Hear a short clip, guess the title in six rounds
 > [!success] Live now
 > A new song every day. Come back tomorrow for another.
 
-**[Play Adole²](/static/adole/)**
+**[Play Adole²](https://ado-closet-fan-project.pages.dev/static/adole/)**
 
 ## How it works
 
-Every day there's one Ado song. You get six rounds, and the clip gets longer each time: 1s, 2s, 3s, 4s, 6s, then 10s. Type a title, or skip to hear more. Japanese, romaji and English titles all count.
+Every day there's one Ado song. You get six rounds, and the clip gets longer each time: 1s, 2s, 3s, 4s, 6s, then 10s. Type a title, or skip to hear more. Japanese, Romaji and English titles all count.
 
 - 🟩 correct
 - 🟧 shares a word with the answer
