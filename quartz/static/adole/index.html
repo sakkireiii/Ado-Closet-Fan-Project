@@ -361,16 +361,26 @@ function pickStart(s, cycleNum) {
   var list = safeStarts(s);
   return list[cycleNum % list.length];
 }
+function songById(id) {
+  for (var i = 0; i < SONGS.length; i++) {
+    if (SONGS[i].id === id) return SONGS[i];
+  }
+  return null;
+}
+
 function dayMeta(dayNum) {
-  var n = SONGS.length;
+  var pool = (CFG.frozenOrder && CFG.frozenOrder.length)
+    ? CFG.frozenOrder.slice()
+    : SONGS.map(function (s) { return s.id; });
+
+  var n = pool.length;
   if (!n) return { song: null, cycle: 0, start: 0 };
+
   var cyc = Math.floor((dayNum - 1) / n);
   var pos = (dayNum - 1) % n;
-  var order = seededShuffle(
-    SONGS.map(function (_, i) { return i; }),
-    CFG.shuffleSeed + "-cycle-" + cyc
-  );
-  var s = SONGS[order[pos]];
+  var order = seededShuffle(pool, CFG.shuffleSeed + "-cycle-" + cyc);
+  var s = songById(order[pos]);
+  if (!s) return { song: null, cycle: cyc, start: 0 };
   return { song: s, cycle: cyc, start: pickStart(s, cyc) };
 }
 function songForArchiveDay(dayNum) {
@@ -383,7 +393,6 @@ function clipUrlFor(s, st) {
 function clipUrl() {
   return clipUrlFor(song, startSec);
 }
-
 function setGenericMediaSession() {
   if (!("mediaSession" in navigator)) return;
   try {
@@ -598,7 +607,12 @@ async function init() {
     toast("songs.json is empty");
     return;
   }
-
+try {
+    CFG.frozenOrder = await (await fetch("frozenOrder.json")).json();
+  } catch (e) {
+    CFG.frozenOrder = null;
+  }
+  
   try { console.log("[Adole] songs validation", validateSongs(SONGS)); } catch (e) {}
 
   var meta = dayMeta(NO);
