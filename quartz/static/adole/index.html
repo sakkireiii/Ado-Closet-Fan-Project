@@ -744,7 +744,7 @@ $("#bShare").onclick = function () {
     return S.rows[i] ? sq[S.rows[i].t] : "⬛";
   }).join("");
   var k = S.rows.findIndex(function (r) { return r.t === "g"; });
-  var txt = "Adole² No. " + NO + " (" + fmt(NO) + ")\n" + line + "\n" +
+  var txt = "𝑨𝒅𝒐𝒍𝒆² No. " + NO + " (" + fmt(NO) + ")\n" + line + "\n" +
     (k >= 0 ? (k + 1) : "X") + "/6\n" + "https://lnkeee.com/ado-closet-24/adole";
   (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
     .then(function () { toast("Result copied"); })
