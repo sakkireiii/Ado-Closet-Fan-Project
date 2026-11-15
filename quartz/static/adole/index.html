@@ -739,7 +739,7 @@ $("#sug").onclick = function (e) {
 };
 
 $("#bShare").onclick = function () {
-  var sq = { g: "🟩", o: "🟧", x: "⬜", s: "⬛" };
+  var sq = { g: "✅", o: "🟧", x: "⬜", s: "⬛" };
   var line = LEN.map(function (_, i) {
     return S.rows[i] ? sq[S.rows[i].t] : "⬛";
   }).join("");
