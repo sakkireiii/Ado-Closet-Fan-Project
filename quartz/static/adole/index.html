@@ -378,7 +378,20 @@ function dayMeta(dayNum) {
 
   var cyc = Math.floor((dayNum - 1) / n);
   var pos = (dayNum - 1) % n;
-  var order = seededShuffle(pool, CFG.shuffleSeed + "-cycle-" + cyc);
+
+  var order;
+  if (CFG.frozenOrder && CFG.frozenOrder.length) {
+    // frozenOrder IS the cycle-0 calendar — do not shuffle it again
+    if (cyc === 0) {
+      order = pool;
+    } else {
+      // later full loops: reshuffle the same locked id list
+      order = seededShuffle(pool, CFG.shuffleSeed + "-cycle-" + cyc);
+    }
+  } else {
+    order = seededShuffle(pool, CFG.shuffleSeed + "-cycle-" + cyc);
+  }
+
   var s = songById(order[pos]);
   if (!s) return { song: null, cycle: cyc, start: 0 };
   return { song: s, cycle: cyc, start: pickStart(s, cyc) };
