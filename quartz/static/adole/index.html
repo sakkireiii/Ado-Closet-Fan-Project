@@ -745,7 +745,7 @@ $("#bShare").onclick = function () {
   }).join("");
   var k = S.rows.findIndex(function (r) { return r.t === "g"; });
   var txt = "Adole² No. " + NO + " (" + fmt(NO) + ")\n" + line + "\n" +
-    (k >= 0 ? (k + 1) : "X") + "/6\n" + CFG.site;
+    (k >= 0 ? (k + 1) : "X") + "/6\n" + "https://h1.nu/adole";
   (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
     .then(function () { toast("Result copied"); })
     .catch(function () { prompt("Copy your result:", txt); });
