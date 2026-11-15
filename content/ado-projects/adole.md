@@ -16,7 +16,7 @@ A daily Ado song-guessing game. Hear a short clip, guess the title in six rounds
 
 Every day there's one Ado song. You get six rounds, and the clip gets longer each time: 1s, 2s, 3s, 4s, 6s, then 10s. Type a title, or skip to hear more. Japanese, Romaji and English titles all count.
 
-- 🟩 correct
+- ✅ correct
 - 🟧 shares a word with the answer
 - ⬜ wrong
 - ⬛ skipped
