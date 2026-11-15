@@ -905,7 +905,7 @@ function renderLeaderboardPage() {
       var rank = start + i + 1;
       var done = x.played_today === true || x.played_today === "t" || x.played_today === 1;
 var mark = done ? '<span class="dot-done" title="Played today">•</span>' : "";
-return '<div class="li"><span class="name">' + mark + rank + ". " + esc(x.username) +
+return '<div class="li"><span class="name">' + rank + ". " + esc(x.username) + mark +
   '</span><small>rec ' + x.best_streak +
   " · now " + x.streak +
   " · 1st " + (x.first_streak != null ? x.first_streak : 0) +
@@ -959,7 +959,7 @@ async function stats() {
 "</div>" +
 "<p style=\"text-align:center;color:var(--mute);margin:6px 0 0;font-size:.9rem\">Won " + me.won + " / " + me.played + "</p>" +
 '<div class="leg">' +
-  '<div><span class="dot-done">•</span> <b>Green dot</b> — already finished today\'s Adole²</div>' +
+  '<div><span class="dot-done">•</span> <b>green dot</b> — already finished today\'s Adole²</div>' +
   "<div><b>rec</b> — best daily win streak</div>" +
   "<div><b>now</b> — current daily win streak</div>" +
   "<div><b>1st</b> — current first-try win streak (0 if not solved in 1 guess)</div>" +
@@ -1031,4 +1031,4 @@ function validateSongs(list) {
 init();
 </script>
 </body>
-   </html>
+</html>
