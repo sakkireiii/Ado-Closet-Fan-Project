@@ -826,9 +826,9 @@ function renderLeaderboardPage() {
     list = slice.map(function (x, i) {
       var rank = start + i + 1;
       return '<div class="li"><span class="name">' + rank + ". " + esc(x.username) +
-        '</span><small>rec ' + x.best_streak +
+  '</span><small>rec ' + x.best_streak +
   " · now " + x.streak +
-  " · 1st " + (x.best_first_streak != null ? x.best_first_streak : 0) +
+  " · 1st " + (x.first_streak != null ? x.first_streak : 0) +
   "</small></div>";
     }).join("");
   }
