@@ -760,7 +760,10 @@ function play(i, forceRestart) {
   }
 
   audio.onerror = function () {
-    toast("Clip missing: " + url);
+    audio.onerror = null;
+    toast("No clip available");
+    stopClip();
+    setPlayIcons();
   };
   audio.oncanplaythrough = function () {
     audio.oncanplaythrough = null;
