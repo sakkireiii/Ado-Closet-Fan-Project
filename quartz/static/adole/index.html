@@ -920,6 +920,37 @@ $("#bStat").onclick = function () {
   stats();
 };
 
+function lbKey(x) {
+  return [
+    +(x.best_streak || 0),
+    +(x.streak || 0),
+    +(x.first_streak != null ? x.first_streak : 0)
+  ];
+}
+function lbSame(a, b) {
+  var ka = lbKey(a), kb = lbKey(b);
+  return ka[0] === kb[0] && ka[1] === kb[1] && ka[2] === kb[2];
+}
+function sortLeaderboard(list) {
+  return list.slice().sort(function (a, b) {
+    var ka = lbKey(a), kb = lbKey(b);
+    if (kb[0] !== ka[0]) return kb[0] - ka[0]; // rec
+    if (kb[1] !== ka[1]) return kb[1] - ka[1]; // now
+    if (kb[2] !== ka[2]) return kb[2] - ka[2]; // 1st
+    return String(a.username || "").localeCompare(String(b.username || ""));
+  });
+}
+function assignRanks(list) {
+  // dense: 1, 2, 2, 3 …
+  var ranks = [];
+  for (var i = 0; i < list.length; i++) {
+    if (i === 0) ranks[i] = 1;
+    else if (lbSame(list[i], list[i - 1])) ranks[i] = ranks[i - 1];
+    else ranks[i] = ranks[i - 1] + 1;
+  }
+  return ranks;
+}
+
 function renderLeaderboardPage() {
   var size = CFG.lbPageSize;
   var start = lbPage * size;
@@ -931,15 +962,21 @@ function renderLeaderboardPage() {
   } else if (!slice.length) {
     list = "<p>No more players.</p>";
   } else {
+    var ranks = assignRanks(lbCache);
     list = slice.map(function (x, i) {
-      var rank = start + i + 1;
+      var idx = start + i;
+      var rank = ranks[idx];
+      var showRank = idx === 0 || ranks[idx] !== ranks[idx - 1];
+      var rankLabel = showRank
+        ? (rank + ". ")
+        : '<span style="display:inline-block;min-width:1.6em"></span>';
       var done = x.played_today === true || x.played_today === "t" || x.played_today === 1;
-var mark = done ? '<span class="dot-done" title="Played today">•</span>' : "";
-return '<div class="li"><span class="name">' + rank + ". " + esc(x.username) + mark +
-  '</span><small>rec ' + x.best_streak +
-  " · now " + x.streak +
-  " · 1st " + (x.first_streak != null ? x.first_streak : 0) +
-  "</small></div>";
+      var mark = done ? '<span class="dot-done" title="Played today">•</span>' : "";
+      return '<div class="li"><span class="name">' + rankLabel + esc(x.username) + mark +
+        '</span><small>rec ' + x.best_streak +
+        " · now " + x.streak +
+        " · 1st " + (x.first_streak != null ? x.first_streak : 0) +
+        "</small></div>";
     }).join("");
   }
 
@@ -977,6 +1014,7 @@ async function stats() {
       lbCache = await rpc("adole_leaderboard", {});
       if (!Array.isArray(lbCache)) lbCache = [];
     }
+    lbCache = sortLeaderboard(lbCache);
 
     b.innerHTML =
       "<p>" + esc(me.username) +
