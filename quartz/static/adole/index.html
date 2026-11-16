@@ -1084,11 +1084,9 @@ function updateLbHint() {
   var el = $("#lbHint");
   if (!el) return;
   if (lbMode === "hard") {
-    el.textContent = lbCacheHard.length
-      ? "Players who have used hard mode at least once. Ranked by rec → now → 1st."
-      : "No hard-mode players yet. Turn on Hard in Settings, then finish a day.";
+    el.textContent = "Hard only: rec / now / 1st from hard-mode days only.";
   } else {
-    el.textContent = "Everyone. Ranked by rec → now → 1st.";
+    el.textContent = "All players: rec / now / 1st from every day.";
   }
 }
 
@@ -1161,4 +1159,4 @@ function validateSongs(list) {
 init();
 </script>
 </body>
-</html>
+  </html>
