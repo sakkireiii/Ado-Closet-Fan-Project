@@ -966,7 +966,7 @@ function renderLeaderboardPage() {
     list = slice.map(function (x, i) {
       var idx = start + i;
       var rank = ranks[idx];
-      var showRank = idx === 0 || ranks[idx] !== ranks[idx - 1];
+      var showRank = (i === 0) || ranks[idx] !== ranks[idx - 1];
       var rankLabel = showRank
         ? (rank + ". ")
         : '<span style="display:inline-block;min-width:1.6em"></span>';
