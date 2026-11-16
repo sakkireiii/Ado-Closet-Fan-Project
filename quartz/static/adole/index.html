@@ -80,6 +80,7 @@ dialog input:not([type=checkbox]){width:100%;height:44px;margin:4px 0 9px;backgr
 .li small{color:var(--mute);flex:none}
 .stats{display:grid;grid-template-columns:repeat(3,1fr);gap:7px;text-align:center;margin:9px 0}
 .dot-done{color:var(--g);font-weight:700;margin-left:8px;font-size:.95em;line-height:1}
+.dot-hard{color:var(--o);font-weight:700;margin-left:4px;font-size:.95em;line-height:1}
 .leg{margin:8px 0 0;padding:8px 10px;border:1px solid var(--line);border-radius:10px;background:var(--bg);color:var(--mute);font-size:.78rem;line-height:1.45;text-align:left}
 .leg b{color:var(--ink);font-weight:600}
 .stats b{display:block;font-size:1.55rem}.stats span{color:var(--mute);font-size:.8rem}
@@ -971,7 +972,10 @@ function renderLeaderboardPage() {
         ? (rank + ". ")
         : '<span style="display:inline-block;min-width:1.6em"></span>';
       var done = x.played_today === true || x.played_today === "t" || x.played_today === 1;
-      var mark = done ? '<span class="dot-done" title="Played today">•</span>' : "";
+      var hardToday = x.hard_today === true || x.hard_today === "t" || x.hard_today === 1;
+      var mark = "";
+      if (done) mark += '<span class="dot-done" title="Played today">•</span>';
+      if (hardToday) mark += '<span class="dot-hard" title="Hard mode today">•</span>';
       return '<div class="li"><span class="name">' + rankLabel + esc(x.username) + mark +
         '</span><small>rec ' + x.best_streak +
         " · now " + x.streak +
@@ -1028,6 +1032,7 @@ async function stats() {
 "<p style=\"text-align:center;color:var(--mute);margin:6px 0 0;font-size:.9rem\">Won " + me.won + " / " + me.played + "</p>" +
 '<div class="leg">' +
   '<div><span class="dot-done">•</span> <b>green dot</b> — already finished today\'s Adole²</div>' +
+  '<div><span class="dot-hard">•</span> <b>orange/red dot</b> — hard mode today</div>' +
   "<div><b>rec</b> — best daily win streak</div>" +
   "<div><b>now</b> — current daily win streak</div>" +
   "<div><b>1st</b> — current first-try win streak (0 if not solved in 1 guess)</div>" +
