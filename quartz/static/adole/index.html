@@ -87,6 +87,9 @@ dialog input:not([type=checkbox]){width:100%;height:44px;margin:4px 0 9px;backgr
 .sw{display:flex;justify-content:space-between;align-items:center;gap:12px;margin-bottom:12px}
 .pager{display:flex;justify-content:space-between;align-items:center;gap:8px;margin-top:10px}
 .pager .btn{height:38px;padding:0 12px;font-size:.9rem}
+.lbTabs{display:flex;gap:6px;margin:8px 0 4px;flex-wrap:wrap}
+.lbTabs .btn{height:34px;padding:0 12px;font-size:.85rem}
+.lbTabs .btn.on{border-color:var(--acc);background:var(--acc);color:var(--on);font-weight:700}
 #toast{position:fixed;bottom:max(18px,env(safe-area-inset-bottom));left:50%;transform:translateX(-50%);background:var(--ink);color:var(--bg);padding:9px 15px;border-radius:10px;display:none;z-index:9;font-size:.9rem}
 :focus-visible{outline:2px solid var(--acc);outline-offset:2px}
 .gone{position:fixed!important;left:-9999px;top:0;width:360px}
@@ -294,6 +297,10 @@ let clipRemainMs = 0;
 let clipRow = -1;
 let lbPage = 0;
 let lbCache = [];
+let lbMode = "all"; // "all" | "hard"
+let lbCacheAll = [];
+let lbCacheHard = [];
+
 const audio = new Audio();
 audio.preload = "auto";
 
@@ -1009,36 +1016,54 @@ async function stats() {
   try {
     var me = await rpc("adole_login", { p_username: a.u, p_pin: a.p });
     try {
-      lbCache = await rpc("adole_leaderboard_page", {
-        p_offset: 0,
-        p_limit: 100
-      });
-      if (!Array.isArray(lbCache)) lbCache = [];
+      lbCacheAll = await rpc("adole_leaderboard_page", { p_offset: 0, p_limit: 100 });
+      if (!Array.isArray(lbCacheAll)) lbCacheAll = [];
     } catch (e1) {
-      lbCache = await rpc("adole_leaderboard", {});
-      if (!Array.isArray(lbCache)) lbCache = [];
+      try {
+        lbCacheAll = await rpc("adole_leaderboard", {});
+        if (!Array.isArray(lbCacheAll)) lbCacheAll = [];
+      } catch (e2) {
+        lbCacheAll = [];
+      }
     }
-    lbCache = sortLeaderboard(lbCache);
+    try {
+      lbCacheHard = await rpc("adole_leaderboard_hard_page", { p_offset: 0, p_limit: 100 });
+      if (!Array.isArray(lbCacheHard)) lbCacheHard = [];
+    } catch (e3) {
+      lbCacheHard = [];
+    }
+    lbCacheAll = sortLeaderboard(lbCacheAll);
+    lbCacheHard = sortLeaderboard(lbCacheHard);
+    lbMode = "all";
+    lbPage = 0;
+    lbCache = lbCacheAll;
 
     b.innerHTML =
       "<p>" + esc(me.username) +
       ' <button class="btn" id="bOut" style="height:36px">Log out</button></p>' +
       '<div class="stats">' +
-  "<div><b>" + me.streak + "</b><span>Streak</span></div>" +
-  "<div><b>" + me.best_streak + "</b><span>Record</span></div>" +
-  "<div><b>" + (me.first_streak != null ? me.first_streak : 0) + "</b><span>1st streak</span></div>" +
-  "<div><b>" + (me.best_first_streak != null ? me.best_first_streak : 0) + "</b><span>1st record</span></div>" +
-"</div>" +
-"<p style=\"text-align:center;color:var(--mute);margin:6px 0 0;font-size:.9rem\">Won " + me.won + " / " + me.played + "</p>" +
-'<div class="leg">' +
-  '<div><span class="dot-done">•</span> <b>green dot</b> — already played today\'s Adole²</div>' +
-  '<div><span class="dot-hard">•</span> <b>orange dot</b> — hard mode today</div>' +
-  "<div><b>rec</b> — best daily win streak</div>" +
-  "<div><b>now</b> — current daily win streak</div>" +
-  "<div><b>1st</b> — current first-try win streak (back to 0 if not solved in 1 guess)</div>" +
-  "<div><b>1st record</b> (above) — best first-try streak ever</div>" +
-"</div>" +
-"<h3 style=\"margin:12px 0 4px;font:600 1.1rem var(--display)\">Top streaks</h3>" +
+      "<div><b>" + me.streak + "</b><span>Streak</span></div>" +
+      "<div><b>" + me.best_streak + "</b><span>Record</span></div>" +
+      "<div><b>" + (me.first_streak != null ? me.first_streak : 0) + "</b><span>1st streak</span></div>" +
+      "<div><b>" + (me.best_first_streak != null ? me.best_first_streak : 0) + "</b><span>1st record</span></div>" +
+      "</div>" +
+      "<p style=\"text-align:center;color:var(--mute);margin:6px 0 0;font-size:.9rem\">Won " + me.won + " / " + me.played + "</p>" +
+      '<div class="leg">' +
+      '<div><span class="dot-done">•</span> <b>green dot</b> — already finished today\'s Adole²</div>' +
+      '<div><span class="dot-hard">•</span> <b>orange/red dot</b> — hard mode today</div>' +
+      "<div><b>rec</b> — best daily win streak</div>" +
+      "<div><b>now</b> — current daily win streak</div>" +
+      "<div><b>1st</b> — current first-try win streak (0 if not solved in 1 guess)</div>" +
+      "<div><b>1st record</b> (above) — best first-try streak ever</div>" +
+      "</div>" +
+      "<h3 style=\"margin:12px 0 4px;font:600 1.1rem var(--display)\">Leaderboard</h3>" +
+      (lbCacheHard.length
+        ? ('<div class="lbTabs">' +
+           '<button type="button" class="btn on" id="lbAll">All</button>' +
+           '<button type="button" class="btn" id="lbHard">Hard</button>' +
+           "</div>" +
+           '<p id="lbHint" style="color:var(--mute);font-size:.8rem;margin:0 0 6px"></p>')
+        : "") +
       '<div id="lbList">' + renderLeaderboardPage() + "</div>";
 
     $("#bOut").onclick = function () {
@@ -1046,13 +1071,45 @@ async function stats() {
       $("#dStat").close();
       showLogin();
     };
+    bindLbTabs();
     bindPager();
+    updateLbHint();
   } catch (e) {
     b.innerHTML = "<p>" + esc(e.message) + "</p>";
     LS.removeItem("adole_acct");
   }
 }
 
+function updateLbHint() {
+  var el = $("#lbHint");
+  if (!el) return;
+  if (lbMode === "hard") {
+    el.textContent = lbCacheHard.length
+      ? "Players who have used hard mode at least once. Ranked by rec → now → 1st."
+      : "No hard-mode players yet. Turn on Hard in Settings, then finish a day.";
+  } else {
+    el.textContent = "Everyone. Ranked by rec → now → 1st.";
+  }
+}
+
+function setLbMode(mode) {
+  lbMode = mode === "hard" ? "hard" : "all";
+  lbPage = 0;
+  lbCache = lbMode === "hard" ? lbCacheHard : lbCacheAll;
+  var a = $("#lbAll"), h = $("#lbHard");
+  if (a) a.classList.toggle("on", lbMode === "all");
+  if (h) h.classList.toggle("on", lbMode === "hard");
+  var list = $("#lbList");
+  if (list) list.innerHTML = renderLeaderboardPage();
+  updateLbHint();
+  bindPager();
+}
+
+function bindLbTabs() {
+  var a = $("#lbAll"), h = $("#lbHard");
+  if (a) a.onclick = function () { setLbMode("all"); };
+  if (h) h.onclick = function () { setLbMode("hard"); };
+}
 function bindPager() {
   var prev = $("#lbPrev");
   var next = $("#lbNext");
