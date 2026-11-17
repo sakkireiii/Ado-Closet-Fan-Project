@@ -860,8 +860,12 @@ $("#bShare").onclick = function () {
     return S.rows[i] ? sq[S.rows[i].t] : "⬛";
   }).join("");
   var k = S.rows.findIndex(function (r) { return r.t === "g"; });
-  var txt = "𝑨𝒅𝒐𝒍𝒆² No. " + NO + " (" + fmt(NO) + ")\n" + line + "\n" +
-    (k >= 0 ? (k + 1) : "X") + "/6\n" + "https://lnkeee.com/ado-closet-24/adole";
+  var score = (k >= 0 ? (k + 1) : "X") + "/6";
+  if (hard()) score += "【Hard Mode】";
+  var txt = "𝑨𝒅𝒐𝒍𝒆² No. " + NO + " (" + fmt(NO) + ")\n" +
+    line + "\n" +
+    score + "\n" +
+    "https://lnkeee.com/ado-closet-24/adole";
   (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
     .then(function () { toast("Result copied"); })
     .catch(function () { prompt("Copy your result:", txt); });
@@ -1159,4 +1163,4 @@ function validateSongs(list) {
 init();
 </script>
 </body>
-  </html>
+</html>
