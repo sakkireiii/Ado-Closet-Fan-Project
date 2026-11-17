@@ -855,13 +855,19 @@ $("#sug").onclick = function (e) {
 };
 
 $("#bShare").onclick = function () {
-  var sq = { g: "✅", o: "🟧", x: "⬜", s: "⬛" };
+  var isHard = hard();
+  var sq = {
+    g: isHard ? "⭕" : "✅",
+    o: "🟧",
+    x: "⬜",
+    s: "⬛"
+  };
   var line = LEN.map(function (_, i) {
     return S.rows[i] ? sq[S.rows[i].t] : "⬛";
   }).join("");
   var k = S.rows.findIndex(function (r) { return r.t === "g"; });
   var score = (k >= 0 ? (k + 1) : "X") + "/6";
-  if (hard()) score += "【Hard Mode】";
+  if (isHard) score += "【Hard Mode】";
   var txt = "𝑨𝒅𝒐𝒍𝒆² No. " + NO + " (" + fmt(NO) + ")\n" +
     line + "\n" +
     score + "\n" +
@@ -1163,4 +1169,4 @@ function validateSongs(list) {
 init();
 </script>
 </body>
-</html>
+  </html>
