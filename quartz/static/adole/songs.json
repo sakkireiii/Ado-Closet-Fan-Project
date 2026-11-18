@@ -395,12 +395,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      147
     ],
     "audio": "clips/jama",
-    "yt": null,
+    "yt": "6uR_UxqGoug",
     "nico": null,
-    "start": 0
+    "start": 147
   },
   {
     "id": "hungry-nicole",
@@ -1511,11 +1511,11 @@
       "プリキュア5、スマイル go go!"
     ],
     "duration": null,
-    "starts": [0],
+    "starts": [65],
     "audio": "clips/precure-5-smile-go-go",
-    "yt": null,
+    "yt": "LVgCDkzSJwI",
     "nico": null,
-    "start": 0
+    "start": 65
   },
   {
     "id": "i-m-a-controversy",
@@ -1820,11 +1820,11 @@
     "id": "imodemoiijan",
     "titles": ["IMODEMOIIJAN", "イモでもいいじゃん"],
     "duration": null,
-    "starts": [0],
+    "starts": [80],
     "audio": "clips/imodemoiijan",
-    "yt": null,
+    "yt": "zS2bYiGdfLE",
     "nico": null,
-    "start": 0
+    "start": 80
   },
   {
     "id": "mirror",
