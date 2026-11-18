@@ -195,12 +195,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      56
     ],
     "audio": "clips/bad-dance-hall",
-    "yt": null,
+    "yt": "tY83faZZyzE",
     "nico": null,
-    "start": 0
+    "start": 56
   },
   {
     "id": "rebirth",
@@ -256,12 +256,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      82
     ],
     "audio": "clips/accident-coordinator",
-    "yt": null,
+    "yt": "R8SsFdv35Dg",
     "nico": null,
-    "start": 0
+    "start": 82
   },
   {
     "id": "melty-land-nightmare",
@@ -286,12 +286,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      190
     ],
     "audio": "clips/additional-memory",
-    "yt": null,
+    "yt": "h1q7BNK5U9A",
     "nico": null,
-    "start": 0
+    "start": 190
   },
   {
     "id": "ego-rock-onechorus",
@@ -483,12 +483,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      16
     ],
     "audio": "clips/20kyo",
-    "yt": null,
+    "yt": "9cBPLMrCG6o",
     "nico": null,
-    "start": 0
+    "start": 16
   },
   {
     "id": "sleep-with-sheep",
@@ -556,12 +556,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      5
     ],
     "audio": "clips/anemone",
-    "yt": null,
+    "yt": "MFqZ6zRGbLg",
     "nico": null,
-    "start": 0
+    "start": 5
   },
   {
     "id": "girl-eraser",
@@ -648,12 +648,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      38
     ],
     "audio": "clips/baka",
-    "yt": null,
+    "yt": "aOIrxUTBRgs",
     "nico": null,
-    "start": 0
+    "start": 38
   },
   {
     "id": "stick-candy",
@@ -1044,11 +1044,11 @@
     "id": "16-bit-girl",
     "titles": ["16-bit girl", "16ビットガール"],
     "duration": null,
-    "starts": [0],
+    "starts": [42],
     "audio": "clips/16-bit-girl",
-    "yt": null,
+    "yt": "UcpAHDF8yZI",
     "nico": null,
-    "start": 0
+    "start": 42
   },
   {
     "id": "yoru-no-pierrot",
@@ -1064,11 +1064,11 @@
     "id": "antisystem-s",
     "titles": ["Antisystem's", "アンチシステム's"],
     "duration": null,
-    "starts": [0],
+    "starts": [35],
     "audio": "clips/antisystem-s",
-    "yt": null,
+    "yt": "P12337hMnbI",
     "nico": null,
-    "start": 0
+    "start": 35
   },
   {
     "id": "aitakute",
@@ -1128,11 +1128,11 @@
       "アダムとイブになれたら"
     ],
     "duration": null,
-    "starts": [0],
+    "starts": [12],
     "audio": "clips/adam-to-eve-ni-naretara",
-    "yt": null,
+    "yt": "PcA3BIzKxiw",
     "nico": null,
-    "start": 0
+    "start": 12
   },
   {
     "id": "scissorhands",
@@ -1160,7 +1160,7 @@
     "duration": null,
     "starts": [20, 60, 100],
     "audio": "clips/ashura-chan",
-    "yt": null,
+    "yt": "cyq5-StPISU",
     "nico": null,
     "start": 20
   },
@@ -1196,11 +1196,11 @@
       "嗚呼、素晴らしきニャン生"
     ],
     "duration": null,
-    "starts": [0],
+    "starts": [17],
     "audio": "clips/ah-it-s-a-wonderful-cat-life",
-    "yt": null,
+    "yt": "Uuqp7WH4-Wo",
     "nico": null,
-    "start": 0
+    "start": 17
   },
   {
     "id": "love-destroy",
@@ -1351,11 +1351,11 @@
     "id": "backlight",
     "titles": ["Backlight", "Gyakkou", "逆光"],
     "duration": null,
-    "starts": [20, 55, 100],
+    "starts": [36, 55, 100],
     "audio": "clips/backlight",
-    "yt": null,
+    "yt": "gt-v_YCkaMY",
     "nico": null,
-    "start": 20
+    "start": 36
   },
   {
     "id": "god-ish",
@@ -1635,11 +1635,11 @@
     "id": "all-night-radio",
     "titles": ["All Night Radio", "オールナイトレディオ"],
     "duration": null,
-    "starts": [25, 70, 110],
+    "starts": [156, 70, 110],
     "audio": "clips/all-night-radio",
-    "yt": null,
+    "yt": "H2PswzBuvz0",
     "nico": null,
-    "start": 25
+    "start": 156
   },
   {
     "id": "interviewer",
@@ -1722,11 +1722,11 @@
       "愛して愛して愛して"
     ],
     "duration": null,
-    "starts": [0],
+    "starts": [11],
     "audio": "clips/aishite-aishite-aishite",
-    "yt": null,
+    "yt": "U8BlNEKq0r8",
     "nico": null,
-    "start": 0
+    "start": 11
   },
   {
     "id": "kawaikute-gomen",
@@ -1911,11 +1911,11 @@
       "アクシデントコーディネイター:re"
     ],
     "duration": null,
-    "starts": [0],
+    "starts": [46],
     "audio": "clips/accident-coordinator-re",
-    "yt": null,
+    "yt": "o0eEFR6Q9as",
     "nico": null,
-    "start": 0
+    "start": 46
   },
   {
     "id": "lazy-cruise",
@@ -2245,11 +2245,11 @@
     "id": "angelseek",
     "titles": ["Angelseek", "エンゼルシーク"],
     "duration": null,
-    "starts": [0],
+    "starts": [8],
     "audio": "clips/angelseek",
-    "yt": null,
+    "yt": "aGSmxr-dUq0",
     "nico": null,
-    "start": 0
+    "start": 8
   },
   {
     "id": "vivarium",
@@ -2265,11 +2265,11 @@
     "id": "aiaia",
     "titles": ["AiAiA", "アイ・アイ・ア"],
     "duration": null,
-    "starts": [0],
+    "starts": [46],
     "audio": "clips/aiaia",
-    "yt": null,
+    "yt": "_8CNByAq1n4",
     "nico": null,
-    "start": 0
+    "start": 46
   },
   {
     "id": "e-aa-sou",
@@ -2385,11 +2385,11 @@
     "id": "and-july",
     "titles": ["And July"],
     "duration": null,
-    "starts": [0],
+    "starts": [50],
     "audio": "clips/and-july",
-    "yt": null,
+    "yt": "BcjqWNViVU0",
     "nico": null,
-    "start": 0
+    "start": 50
   },
   {
     "id": "shinka",
