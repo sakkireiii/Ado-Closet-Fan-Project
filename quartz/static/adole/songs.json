@@ -1868,11 +1868,11 @@
       "とても素敵な六月でした"
     ],
     "duration": null,
-    "starts": [0],
+    "starts": [58],
     "audio": "clips/it-was-a-very-beautiful-june",
-    "yt": null,
+    "yt": "5cUq9qgez5w",
     "nico": null,
-    "start": 0
+    "start": 58
   },
   {
     "id": "rule",
@@ -2355,11 +2355,11 @@
     "id": "raven-sky",
     "titles": ["Raven Sky"],
     "duration": null,
-    "starts": [0],
+    "starts": [39],
     "audio": "clips/raven-sky",
-    "yt": null,
+    "yt": "7DBSMzbPQzc*,
     "nico": null,
-    "start": 0
+    "start": 39
   },
   {
     "id": "sayonara",
