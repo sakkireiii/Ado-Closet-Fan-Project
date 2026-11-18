@@ -22,12 +22,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      59
     ],
     "audio": "clips/star-night-snow",
-    "yt": null,
+    "yt": "rJc2iDTxXnQ",
     "nico": null,
-    "start": 0
+    "start": 59
   },
   {
     "id": "strangers",
@@ -148,12 +148,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      17
     ],
     "audio": "clips/liar-dance",
-    "yt": null,
+    "yt": "SxKI2AKwz0E",
     "nico": null,
-    "start": 0
+    "start": 17
   },
   {
     "id": "wagamama",
@@ -1810,11 +1810,11 @@
       "夜のくじら"
     ],
     "duration": null,
-    "starts": [0],
+    "starts": [34],
     "audio": "clips/night-whale",
-    "yt": null,
+    "yt": "ZErhdHtPar0",
     "nico": null,
-    "start": 0
+    "start": 34
   },
   {
     "id": "imodemoiijan",
