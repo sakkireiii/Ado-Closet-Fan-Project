@@ -36,12 +36,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      68
     ],
     "audio": "clips/strangers",
-    "yt": null,
+    "yt": "tE6xw1pvtCI",
     "nico": null,
-    "start": 0
+    "start": 68
   },
   {
     "id": "kirai-kirai-jiga-hidai",
@@ -85,12 +85,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      61
     ],
     "audio": "clips/doting",
-    "yt": null,
+    "yt": "mQPTptiekws",
     "nico": null,
-    "start": 0
+    "start": 61
   },
   {
     "id": "deep-coma",
@@ -469,12 +469,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      54
     ],
     "audio": "clips/osmanthus",
-    "yt": null,
+    "yt": "Baw-cAvS5xc",
     "nico": null,
-    "start": 0
+    "start": 54
   },
   {
     "id": "20kyo",
@@ -497,12 +497,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      17
     ],
     "audio": "clips/sleep-with-sheep",
-    "yt": null,
+    "yt": "N17I2XJj22c",
     "nico": null,
-    "start": 0
+    "start": 17
   },
   {
     "id": "factoria",
@@ -512,12 +512,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      104
     ],
     "audio": "clips/factoria",
-    "yt": null,
+    "yt": "aEoQpO48PrQ",
     "nico": null,
-    "start": 0
+    "start": 104
   },
   {
     "id": "last-resort",
@@ -783,12 +783,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      42
     ],
     "audio": "clips/freudmeta",
-    "yt": null,
+    "yt": "t40T2gVXDDA",
     "nico": null,
-    "start": 0
+    "start": 42
   },
   {
     "id": "half-colored-sentimentality",
@@ -1273,11 +1273,11 @@
     "id": "motherland",
     "titles": ["Motherland", "マザーランド"],
     "duration": null,
-    "starts": [0],
+    "starts": [94],
     "audio": "clips/motherland",
-    "yt": null,
+    "yt": "_wZfYtYwxro",
     "nico": null,
-    "start": 0
+    "start": 94
   },
   {
     "id": "kagakushuu",
@@ -1341,11 +1341,11 @@
       "私は最強"
     ],
     "duration": null,
-    "starts": [15, 50, 95],
+    "starts": [73],
     "audio": "clips/i-m-invincible",
-    "yt": null,
+    "yt": "sk1Z-Hqwwog",
     "nico": null,
-    "start": 15
+    "start": 73
   },
   {
     "id": "backlight",
@@ -2215,31 +2215,31 @@
       "彗星列車のベルが鳴る"
     ],
     "duration": null,
-    "starts": [0],
+    "starts": [93, 58],
     "audio": "clips/the-comet-train-s-bell-rings",
-    "yt": null,
+    "yt": "j3nwow5QXkw",
     "nico": null,
-    "start": 0
+    "start": 93
   },
   {
     "id": "odoru-ponpokorin",
     "titles": ["Odoru Ponpokorin", "おどるポンポコリン"],
     "duration": null,
-    "starts": [0],
+    "starts": [135],
     "audio": "clips/odoru-ponpokorin",
-    "yt": null,
+    "yt": "NB94LKrLEt4",
     "nico": null,
-    "start": 0
+    "start": 135
   },
   {
     "id": "soldier-game",
     "titles": ["soldier game"],
     "duration": null,
-    "starts": [0],
+    "starts": [41],
     "audio": "clips/soldier-game",
-    "yt": null,
+    "yt": "J3hzdBkd6bg",
     "nico": null,
-    "start": 0
+    "start": 41
   },
   {
     "id": "angelseek",
@@ -2255,9 +2255,9 @@
     "id": "vivarium",
     "titles": ["Vivarium", "ビバリウム"],
     "duration": null,
-    "starts": [0],
+    "starts": [0, 29, 59],
     "audio": "clips/vivarium",
-    "yt": null,
+    "yt": "YvYii6dluM8",
     "nico": null,
     "start": 0
   },
@@ -2375,11 +2375,11 @@
     "id": "patient-a",
     "titles": ["Patient A", "患者A"],
     "duration": null,
-    "starts": [0],
+    "starts": [132, 56],
     "audio": "clips/patient-a",
-    "yt": null,
+    "yt": "JO66tA5Yngs",
     "nico": null,
-    "start": 0
+    "start": 132
   },
   {
     "id": "and-july",
