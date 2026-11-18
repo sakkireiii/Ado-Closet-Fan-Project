@@ -1951,11 +1951,11 @@
     "id": "shoka",
     "titles": ["Shoka", "初夏"],
     "duration": null,
-    "starts": [15, 50, 90],
+    "starts": [7, 50, 90],
     "audio": "clips/shoka",
-    "yt": null,
+    "yt": "GORsp0gc2Nc",
     "nico": null,
-    "start": 15
+    "start": 7
   },
   {
     "id": "sakura-biyori-and-time-machine",
@@ -2081,11 +2081,11 @@
     "id": "stay-gold",
     "titles": ["Stay Gold"],
     "duration": null,
-    "starts": [0],
+    "starts": [43],
     "audio": "clips/stay-gold",
-    "yt": null,
+    "yt": "YVXy5ahojZk",
     "nico": null,
-    "start": 0
+    "start": 43
   },
   {
     "id": "ego-rock",
