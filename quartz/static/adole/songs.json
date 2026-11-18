@@ -2345,11 +2345,11 @@
     "id": "dnd",
     "titles": ["DND"],
     "duration": null,
-    "starts": [0],
+    "starts": [30],
     "audio": "clips/dnd",
-    "yt": null,
+    "yt": "__qvPGatwus",
     "nico": null,
-    "start": 0
+    "start": 30
   },
   {
     "id": "raven-sky",
