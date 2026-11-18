@@ -303,12 +303,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      27
     ],
     "audio": "clips/ego-rock-onechorus",
-    "yt": null,
+    "yt": "V37DacsS_Wg",
     "nico": null,
-    "start": 0
+    "start": 27
   },
   {
     "id": "otome-kaibou",
@@ -1878,11 +1878,11 @@
     "id": "rule",
     "titles": ["RuLe", "ルル"],
     "duration": null,
-    "starts": [20, 55, 95],
+    "starts": [96, 135],
     "audio": "clips/rule",
-    "yt": null,
+    "yt": "0Z_YqhYHhpg",
     "nico": null,
-    "start": 20
+    "start": 96
   },
   {
     "id": "nukegara",
