@@ -73,6 +73,12 @@ header{display:flex;align-items:center;justify-content:space-between;gap:10px;pa
 .act{display:flex;gap:9px;align-items:center;flex-wrap:wrap;margin-top:10px}
 .act a{color:var(--acc)}
 #acctNote{color:var(--o);margin-top:7px;font-size:.88rem}
+
+.promo{margin-top:12px;padding:12px 14px;border:1px solid var(--line);border-radius:12px;background:var(--bg);text-align:left}
+.promo h3{margin:0 0 6px;font:700 1.05rem var(--display)}
+.promo p{margin:0 0 0;color:var(--mute);font-size:.9rem;line-height:1.45}
+.promo a{color:var(--acc);font-weight:700}
+
 footer{max-width:560px;margin:18px auto 6px;text-align:center;color:var(--mute);font-size:.8rem;line-height:1.4}
 dialog{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:14px;width:min(92vw,400px);padding:18px;max-height:85vh;overflow:auto}
 dialog::backdrop{background:#000a}
@@ -167,6 +173,7 @@ dialog input:not([type=checkbox]){width:100%;height:44px;margin:4px 0 9px;backgr
   <div class="vid"><div id="reveal"></div></div>
   <div class="act"><button class="btn pri" id="bShare"><svg class="i"><use href="#i-copy"/></svg>Share result</button></div>
   <div id="acctNote"></div>
+  <div id="promoBox" class="promo" hidden></div>
  </section>
 </div>
 
@@ -237,6 +244,37 @@ const CFG = {
 const LEN = [1, 2, 3, 4, 6, 10];
 const $ = function (s) { return document.querySelector(s); };
 const LS = localStorage;
+
+const JERRY_MASTER_LIST_URL =
+  "https://docs.google.com/document/d/12Jhbt575cFRVtYTqihQDWWEgjyp7zn7VdgJPCt5qfY8/edit?usp=drivesdk";
+
+function lossStreakGet() {
+  try { return Math.max(0, parseInt(LS.getItem("adole_loss_streak") || "0", 10) || 0); }
+  catch (e) { return 0; }
+}
+function lossStreakSet(n) {
+  try { LS.setItem("adole_loss_streak", String(Math.max(0, n | 0))); } catch (e) {}
+}
+function updateLossStreak(won) {
+  if (won) lossStreakSet(0);
+  else lossStreakSet(lossStreakGet() + 1);
+  return lossStreakGet();
+}
+function showJerryPromoIfNeeded(lossStreak) {
+  var box = $("#promoBox");
+  if (!box) return;
+  if (lossStreak === 5) {
+    box.hidden = false;
+    box.innerHTML =
+      "<h3>Rough stretch?</h3>" +
+      "<p>Five misses in a row — if you have time, check " +
+      "<a href=\"" + JERRY_MASTER_LIST_URL + "\" target=\"_blank\" rel=\"noopener noreferrer\">Jerry’s Master List</a> " +
+      "and go through her discography again.</p>";
+  } else {
+    box.hidden = true;
+    box.innerHTML = "";
+  }
+}
 
 const ic = function (n) {
   return '<svg class="i" aria-hidden="true"><use href="#i-' + n + '"/></svg>';
@@ -714,6 +752,10 @@ function render() {
     $("#endH").textContent = ok ? "Correct!" : "Not this time!";
     $("#endT").textContent = (song.titles || []).join(" / ");
     loadReveal();
+    showJerryPromoIfNeeded(S.lossStreak != null ? S.lossStreak : lossStreakGet());
+  } else {
+    var pb = $("#promoBox");
+    if (pb) { pb.hidden = true; pb.innerHTML = ""; }
   }
   setPlayIcons();
 }
@@ -801,6 +843,11 @@ function finishCheck() {
   if (S.rows.some(function (r) { return r.t === "g"; }) || S.rows.length >= 6) {
     S.done = true;
     stopClip();
+    if (!S.lossCounted) {
+      S.lossCounted = true;
+      var won = S.rows.some(function (r) { return r.t === "g"; });
+      S.lossStreak = updateLossStreak(won);
+    }
   }
   save();
   render();
