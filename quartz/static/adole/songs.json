@@ -7,12 +7,12 @@
     ],
     "duration": null,
     "starts": [
-      0
+      36
     ],
     "audio": "clips/kimi-no-taion",
     "yt": null,
-    "nico": null,
-    "start": 0
+    "nico": "sm30407954",
+    "start": 36
   },
   {
     "id": "star-night-snow",
@@ -2169,11 +2169,11 @@
       "風と私の物語"
     ],
     "duration": null,
-    "starts": [0],
+    "starts": [83],
     "audio": "clips/the-story-of-the-wind-and-i",
-    "yt": null,
+    "yt": "oAuKa5NOzWE",
     "nico": null,
-    "start": 0
+    "start": 83
   },
   {
     "id": "yuuki-no-reason",
