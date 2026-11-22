@@ -4,13 +4,16 @@ title: Adole²
 
 A daily Ado song-guessing game. Hear a short clip, guess the title in six rounds, and keep your streak.
 
-
 > Think you know Ado's discography? Put your ears to the test!
 
 > [!success] Live now
-> A new song every day. Come back tomorrow for another.
+> A new song every day. Main link: **[adole2.pages.dev](https://adole2.pages.dev/)**.
 
-<a href="/static/adole/" data-router-ignore>Play Adole²</a>
+> [!info] Moved
+> Adole² now lives at [https://adole2.pages.dev/](https://adole2.pages.dev/).  
+> Already played on the old link? Log in with the **same username and PIN** so your streaks stay on the leaderboard.
+
+<a href="https://adole2.pages.dev/" data-router-ignore>Play Adole²</a>
 
 ## How it works
 
