@@ -78,6 +78,13 @@ header{display:flex;align-items:center;justify-content:space-between;gap:10px;pa
 .promo h3{margin:0 0 6px;font:700 1.05rem var(--display)}
 .promo p{margin:0 0 0;color:var(--mute);font-size:.9rem;line-height:1.45}
 .promo a{color:var(--acc);font-weight:700}
+.migrate{
+  margin:0 0 12px;padding:12px 14px;border:1px solid var(--line);
+  border-radius:12px;background:var(--panel);text-align:left
+}
+.migrate h3{margin:0 0 6px;font:700 1.05rem var(--display)}
+.migrate p{margin:0 0 8px;color:var(--mute);font-size:.9rem;line-height:1.45}
+.migrate .btn{height:38px;padding:0 12px;font-size:.9rem;margin-top:4px}
 
 footer{max-width:560px;margin:18px auto 6px;text-align:center;color:var(--mute);font-size:.8rem;line-height:1.4}
 dialog{background:var(--panel);color:var(--ink);border:1px solid var(--line);border-radius:14px;width:min(92vw,400px);padding:18px;max-height:85vh;overflow:auto}
@@ -158,6 +165,20 @@ dialog input:not([type=checkbox]){width:100%;height:44px;margin:4px 0 9px;backgr
  </div>
 </header>
 
+<div id="migrateBox" class="migrate" hidden>
+  <h3>Adole² moved</h3>
+  <p>
+    This is the new main link: <b>adole2.pages.dev</b>.
+    The old Ado-Closet path still works, but use this one going forward.
+  </p>
+  <p>
+    <b>Already played before?</b> Log in with the <b>same username and PIN</b>
+    from the old site so your streaks and leaderboard stay linked.
+    (Browser storage does not transfer between the two links.)
+  </p>
+  <button type="button" class="btn" id="bMigrateOk">Got it</button>
+</div>
+
 <div class="app" id="gameUI" style="display:none">
  <div id="bar" aria-label="Clip length per round"></div>
  <section class="game card">
@@ -178,7 +199,7 @@ dialog input:not([type=checkbox]){width:100%;height:44px;margin:4px 0 9px;backgr
 </div>
 
 <footer>
-  <p><strong>Adole²</strong> is part of <a href="/" style="color:var(--acc)">Ado-Closet</a>, an unofficial Ado fan project.</p>
+  <p><strong>Adole²</strong> is part of <a href="https://ado-closet-fan-project.pages.dev/" style="color:var(--acc)" target="_blank" rel="noopener noreferrer">Ado-Closet</a>, an unofficial Ado fan project.</p>
   <p>Inspired by the original <a href="https://guess.adobnb.uk" target="_blank" rel="noopener noreferrer" style="color:var(--acc)">Adole</a> (guess.adobnb.uk). Same daily-guess spirit, built separately for this site.</p>
   <p>Not affiliated with, endorsed by, or connected to Ado, Universal Music, Cloud Nine, or any other official party. No songs are available to download here. Please support Ado through her official releases.</p>
 </footer>
@@ -274,6 +295,25 @@ function showJerryPromoIfNeeded(lossStreak) {
     box.hidden = true;
     box.innerHTML = "";
   }
+}
+var MIGRATE_KEY = "adole_migrate_notice_v1";
+
+function showMigrateNoticeIfNeeded() {
+  var box = $("#migrateBox");
+  if (!box) return;
+  try {
+    if (LS.getItem(MIGRATE_KEY) === "1") {
+      box.hidden = true;
+      return;
+    }
+  } catch (e) {}
+  box.hidden = false;
+}
+
+function dismissMigrateNotice() {
+  try { LS.setItem(MIGRATE_KEY, "1"); } catch (e) {}
+  var box = $("#migrateBox");
+  if (box) box.hidden = true;
 }
 
 const ic = function (n) {
@@ -663,6 +703,7 @@ function loadReveal() {
 async function init() {
   themeBtn();
   setGenericMediaSession();
+  showMigrateNoticeIfNeeded();
 
   SONGS = await (await fetch("songs.json")).json();
   if (!Array.isArray(SONGS) || !SONGS.length) {
@@ -938,6 +979,8 @@ document.querySelectorAll("[data-close]").forEach(function (b) {
 
 $("#bInfo").onclick = function () { $("#dInfo").showModal(); };
 $("#bSet").onclick = function () { $("#dSet").showModal(); };
+var bMig = $("#bMigrateOk");
+if (bMig) bMig.onclick = dismissMigrateNotice;
 
 $("#bArc").onclick = function () {
   var m = $("#arcM");
