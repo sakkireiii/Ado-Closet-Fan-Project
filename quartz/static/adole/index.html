@@ -10,7 +10,7 @@
   
 <meta name="description" content="Daily Ado song guessing game. Part of Ado-Closet, an unofficial fan project.">
 <meta property="og:type" content="website">
-<meta property="og:url" content="https://ado-closet-fan-project.pages.dev/static/adole/">
+<meta property="og:url" content="https://adole2.pages.dev">
 <meta property="og:title" content="Adole²">
 <meta property="og:description" content="Guess the Ado song from short clips. Daily challenge with streaks and leaderboard. (EST/UTC-5)">
 <meta property="og:site_name" content="Ado-Closet">
@@ -921,7 +921,7 @@ $("#bShare").onclick = function () {
   var txt = "𝑨𝒅𝒐𝒍𝒆² No. " + NO + " (" + fmt(NO) + ")\n" +
     line + "\n" +
     score + "\n" +
-    "https://lnkeee.com/ado-closet-24/adole";
+    "https://adole2.pages.dev";
   (navigator.clipboard ? navigator.clipboard.writeText(txt) : Promise.reject())
     .then(function () { toast("Result copied"); })
     .catch(function () { prompt("Copy your result:", txt); });
