@@ -74,7 +74,7 @@ body.sel #bar{display:block}
 </div><div class="stat" id="stats"></div></section>
 <section class="panel"><div class="row"><div><h2>2. Battles</h2><p class="hint">Pick the one you prefer. Tie or skip if you can't decide.</p></div><select id="mode" style="max-width:220px"><option value="adaptive">Adaptive</option><option value="random">Random</option><option value="least">Least compared</option></select></div><div id="battle"><div class="song"><strong id="left">Add at least two songs</strong><button class="primary" id="pickL" disabled>Prefer this</button></div><div class="versus">vs</div><div class="song"><strong id="right">Next matchup</strong><button class="primary" id="pickR" disabled>Prefer this</button></div></div><div class="actions"><button id="tie" disabled>Tie</button><button id="skip" disabled>Skip</button><button id="undo" disabled>Undo</button><button id="next" disabled>New matchup</button></div><div class="stat" id="battleStats"></div></section>
 <section class="panel"><h2>3. Close call helper</h2><p class="hint">The two boxes fill in from your current battle, and you can edit them to compare any two songs. Answer four questions to break a tie. The result is a suggestion, never applied automatically.</p><div class="row"><input id="resA" list="dl" placeholder="First song"><input id="resB" list="dl" placeholder="Second song"><button class="primary fit" id="beginResolve">Compare</button></div><datalist id="dl"></datalist><div id="questions" class="hidden"></div></section>
-<section class="panel"><h2>4. Tier list</h2><p class="hint">Tap a song to select it, then use the bar at the bottom to move it earlier, later, to another tier, or back to unplaced. On desktop you can also drag songs, or use the arrow keys on a selected song. Position in a tier is its rank. Use Edit tiers to add, remove, rename, recolor or reorder the tiers themselves.</p><div class="row"><input id="find" placeholder="Find a song (Enter selects the first match)"><button class="fit" id="editT" aria-expanded="false">Edit tiers</button></div><div id="tedit" class="hidden"></div><div id="board"></div><div id="poolbox"><div class="th"><b style="color:var(--petal)">Unplaced</b><span id="poolCount"></span></div><ul class="chips" id="pool"></ul></div></section>
+<section class="panel"><h2>4. Tier list</h2><p class="hint">Tap a song to select it, then use the bar at the bottom to move it earlier, later, to another tier, back to unplaced, or Remove to delete it from the list. On desktop you can also drag songs, or use the arrow keys on a selected song. Position in a tier is its rank. Use Edit tiers to add, remove, rename, recolor or reorder the tiers themselves.</p><div class="row"><input id="find" placeholder="Find a song (Enter selects the first match)"><button class="fit" id="editT" aria-expanded="false">Edit tiers</button></div><div id="tedit" class="hidden"></div><div id="board"></div><div id="poolbox"><div class="th"><b style="color:var(--petal)">Unplaced</b><span id="poolCount"></span></div><ul class="chips" id="pool"></ul></div></section>
 <section class="panel"><h2>5. Backup and export</h2><div class="row"><button id="jsonOut">Export JSON backup</button><button id="csvOut">Export CSV</button><button id="jsonInBtn">Import JSON backup</button><button id="reset">Reset all data</button><input id="jsonIn" type="file" accept=".json,application/json" class="hidden"></div><p class="hint">Autosaves in this browser only. Export a JSON backup to keep your ranking safe or move it to another device.</p></section>
 </main>
 <div id="bar"></div>
@@ -402,6 +402,16 @@ let lastPk="",s=blank(),hist=[],sel=null,drag=null,kbd=false,jump=false,res=null
 function norm(x){x=Object.assign(blank(),x);let tl=(Array.isArray(x.tl)?x.tl:[]).filter(t=>t&&typeof t.n==="string"&&t.n.trim()).map((t,i)=>({n:t.n.trim(),c:/^#[0-9a-f]{6}$/i.test(t.c)?t.c:C[i%C.length]}));tl=tl.filter((t,i)=>tl.findIndex(u=>u.n===t.n)===i);if(!tl.length)tl=DEF();x.tl=tl;const T=tl.map(t=>t.n);let tiers=Object.fromEntries(T.map(t=>[t,(x.tiers&&x.tiers[t]||[]).filter(v=>x.songs.includes(v))]));if(x.tier)for(const [k,t] of Object.entries(x.tier))if(x.songs.includes(k)&&tiers[t]&&!T.some(u=>tiers[u].includes(k)))tiers[t].push(k);x.tiers=tiers;delete x.tier;delete x.history;x.songs.forEach(v=>{x.rating[v]??=1000;x.count[v]??=0});return x}
 const tierOf=x=>T.find(t=>s.tiers[t].includes(x));
 const unplace=x=>T.forEach(t=>s.tiers[t]=s.tiers[t].filter(v=>v!==x));
+function removeSong(x){
+  if(!x||!s.songs.includes(x))return;
+  snap();
+  unplace(x);
+  s.songs=s.songs.filter(v=>v!==x);
+  delete s.rating[x];
+  delete s.count[x];
+  if(s.pair&&(s.pair[0]===x||s.pair[1]===x))s.pair=null;
+  if(sel===x)sel=null;
+}
 function place(x,t,ref,after){unplace(x);const a=s.tiers[t];if(ref&&a.includes(ref))a.splice(a.indexOf(ref)+(after?1:0),0,x);else a.push(x)}
 function shift(x,d){const a=s.tiers[tierOf(x)],i=a.indexOf(x),j=d===-1e9?0:d===1e9?a.length-1:Math.max(0,Math.min(a.length-1,i+d));a.splice(i,1);a.splice(j,0,x)}
 function save(){try{localStorage.setItem(key,JSON.stringify(s))}catch{}render()}
@@ -425,7 +435,7 @@ bar();if(edOpen)edRender();
 }
 function bar(){document.body.classList.toggle("sel",!!sel);if(!sel){$("bar").innerHTML="";return}
 const t=tierOf(sel),a=t?s.tiers[t]:[],i=a.indexOf(sel),d=t?"":"disabled";
-$("bar").innerHTML=`<div class="in"><span class="who">${esc(sel)}<small>${t?esc(t)+", rank "+(i+1)+" of "+a.length:"Unplaced"}</small></span><button data-a="first" ${d}>&laquo; First</button><button data-a="up" ${d}>&lsaquo; Earlier</button><button data-a="down" ${d}>Later &rsaquo;</button><button data-a="last" ${d}>Last &raquo;</button><select id="moveTo" aria-label="Move to tier"><option value="">Move to tier</option>${T.map(x=>`<option${x===t?" disabled":""}>${esc(x)}</option>`).join("")}${t?'<option value="__u">Unplace</option>':""}</select><button data-a="done">Done</button></div>`}
+$("bar").innerHTML=`<div class="in"><span class="who">${esc(sel)}<small>${t?esc(t)+", rank "+(i+1)+" of "+a.length:"Unplaced"}</small></span><button data-a="first" ${d}>&laquo; First</button><button data-a="up" ${d}>&lsaquo; Earlier</button><button data-a="down" ${d}>Later &rsaquo;</button><button data-a="last" ${d}>Last &raquo;</button><select id="moveTo" aria-label="Move to tier"><option value="">Move to tier</option>${T.map(x=>`<option${x===t?" disabled":""}>${esc(x)}</option>`).join("")}${t?'<option value="__u">Unplace</option>':""}</select><button data-a="remove" style="border-color:var(--thorn);color:#ffb3c6">Remove</button><button data-a="done">Done</button></div>`}
 function after(){const el=sel&&[...document.querySelectorAll("[data-s]")].find(e=>e.dataset.s===sel);if(el){if(kbd)el.focus({preventScroll:true});if(jump)el.scrollIntoView({block:"center",behavior:"smooth"})}kbd=jump=false}
 const W=document.querySelector("main");
 W.addEventListener("click",e=>{const h=e.target.closest("[data-here]");if(h){place(sel,h.closest(".tier").dataset.t);jump=true;save();after();return}const c=e.target.closest("[data-s]");if(c){sel=sel===c.dataset.s?null:c.dataset.s;render()}});
@@ -434,7 +444,27 @@ W.addEventListener("dragstart",e=>{const c=e.target.closest("[data-s]");if(c){dr
 W.addEventListener("dragover",e=>{const z=e.target.closest(".tier,#poolbox");if(z&&drag){e.preventDefault();document.querySelectorAll(".over").forEach(o=>o!==z&&o.classList.remove("over"));z.classList.add("over")}});
 W.addEventListener("dragend",()=>{drag=null;document.querySelectorAll(".over").forEach(o=>o.classList.remove("over"))});
 W.addEventListener("drop",e=>{const z=e.target.closest(".tier,#poolbox");if(!z||!drag)return;e.preventDefault();const x=drag;drag=null;if(z.id==="poolbox")unplace(x);else{const c=e.target.closest(".chip[data-t]");let ref=null,af=false;if(c&&c.dataset.s!==x){ref=c.dataset.s;const r=c.getBoundingClientRect();af=e.clientX>r.left+r.width/2}place(x,z.dataset.t,ref,af)}sel=x;jump=true;save();after()});
-$("bar").addEventListener("click",e=>{const a=e.target.dataset.a;if(!a)return;if(a==="done")sel=null;else shift(sel,{first:-1e9,up:-1,down:1,last:1e9}[a]);jump=true;save();after()});
+$("bar").addEventListener("click",e=>{
+  const a=e.target.dataset.a;
+  if(!a)return;
+  if(a==="done"){
+    sel=null;
+  }else if(a==="remove"){
+    if(!sel)return;
+    if(!confirm('Remove "'+sel+'" from this ranker list?'))return;
+    removeSong(sel);
+    jump=true;
+    save();
+    after();
+    if(!s.pair&&s.songs.length>1)pair();
+    return;
+  }else{
+    shift(sel,{first:-1e9,up:-1,down:1,last:1e9}[a]);
+  }
+  jump=true;
+  save();
+  after();
+});
 $("bar").addEventListener("change",e=>{if(e.target.id!=="moveTo"||!e.target.value)return;if(e.target.value==="__u")unplace(sel);else place(sel,e.target.value);jump=true;save();after()});
 $("find").oninput=()=>{render();const m=document.querySelector(".chip:not(.dim)");if($("find").value.trim()&&m)m.scrollIntoView({block:"center",behavior:"smooth"})};
 $("find").onkeydown=e=>{if(e.key==="Enter"){const m=document.querySelector(".chip:not(.dim)");if(m&&$("find").value.trim()){sel=m.dataset.s;jump=true;render();after()}}};
