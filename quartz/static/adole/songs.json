@@ -2057,7 +2057,7 @@
   },
   {
     "id": "matryoshka",
-    "titles": ["MATRYOSHKA", "マトリョシカ"],
+    "titles": ["MATRYOSHKA", "マトリョシカ", "MATORYOSHKA"],
     "duration": null,
     "starts": [36],
     "audio": "clips/matryoshka",

@@ -1090,12 +1090,19 @@ function lbSame(a, b) {
   var ka = lbKey(a), kb = lbKey(b);
   return ka[0] === kb[0] && ka[1] === kb[1] && ka[2] === kb[2];
 }
+function hardTodayFlag(x) {
+  return x.hard_today === true || x.hard_today === "t" || x.hard_today === 1 ? 1 : 0;
+}
+
 function sortLeaderboard(list) {
   return list.slice().sort(function (a, b) {
     var ka = lbKey(a), kb = lbKey(b);
     if (kb[0] !== ka[0]) return kb[0] - ka[0]; // rec
     if (kb[1] !== ka[1]) return kb[1] - ka[1]; // now
     if (kb[2] !== ka[2]) return kb[2] - ka[2]; // 1st
+    // same stats → hard mode today first, then name
+    var ha = hardTodayFlag(a), hb = hardTodayFlag(b);
+    if (hb !== ha) return hb - ha;
     return String(a.username || "").localeCompare(String(b.username || ""));
   });
 }
