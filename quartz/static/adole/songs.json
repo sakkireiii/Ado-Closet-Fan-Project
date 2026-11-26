@@ -79,7 +79,7 @@
     "id": "doting",
     "titles": [
       "doting",
-      "Aikyuuoku",
+      "Aikyuuokuu",
       "愛及屋烏"
     ],
     "duration": null,
@@ -2405,6 +2405,16 @@
     "duration": null,
     "starts": [0],
     "audio": "clips/brain",
+    "yt": null,
+    "nico": null,
+    "start": 0
+  },
+    {
+    "id": "balalaika",
+    "titles": ["BALALAIKA", "バラライカ"],
+    "duration": null,
+    "starts": [0],
+    "audio": "clips/balalaika",
     "yt": null,
     "nico": null,
     "start": 0
